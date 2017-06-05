@@ -1,4 +1,5 @@
 console.log('hello from express');
+app.enable('trust proxy')
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
