@@ -4,7 +4,7 @@ import '../App.css';
 class ProductsList extends Component {
   state = {products: []}
   componentDidMount() {
-   fetch('/products')
+   fetch('/api/products')
       .then(res => {
         return res.json();
       })
@@ -16,7 +16,7 @@ class ProductsList extends Component {
         <h1>Products</h1>
         {this.state.products.map(product =>
           <div key={product.id}>{product.product_name}</div>
-    
+
         )}
       </div>
     );
