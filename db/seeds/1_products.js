@@ -1,13 +1,155 @@
-
-exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
-  return knex('table_name').del()
-    .then(function () {
-      // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
-      ]);
-    });
-};
+exports.seed = function(knex) {
+  return knex('products').del()
+  .then(() => {
+    return knex('products').insert([{
+      id: 1,
+      category_id: 2,
+      promotion_id: 1,
+      name: 'Denim Gladiator Sandal',
+      price: 15.99,
+      quantity: 5,
+      description:'This ultra-posh denim gladiator sandal has a super comfy hook-and-loop closure strap as well as a durable rubber sole.  Your pooch will be the envy of all the other dogs at the dog park!',
+      image_url: 'https://s-media-cache-ak0.pinimg.com/736x/36/6d/6a/366d6ad5043ff7ed25e8e7124bc33ecc.jpg',
+      created_at: new Date('2016-06-26 14:26:16 UTC'),
+      updated_at: new Date('2016-06-26 14:26:16 UTC')
+    },
+    {
+      id: 2,
+      category_id: 1,
+      promotion_id: 5,
+      name: 'Autumn Boot',
+      price: 25.00,
+      quantity: 20,
+      description:'When there\'s a chill in the air and the leaves begin change, it\'s time to protect Fe-Fe\'s feet with these soft, warm boots that will be rugged enough for long afternoon walks and comfy enough to make your pup feel like she\'s walking on air.',
+      image_url: 'http://ecx.images-amazon.com/images/I/41cA55EjoML._SL250_.jpg',
+      created_at: new Date('2016-06-26 14:26:16 UTC'),
+      updated_at: new Date('2016-06-26 14:26:16 UTC')
+    },
+    {
+      id: 3,
+      category_id: 4,
+      promotion_id: 4,
+      name: 'Knee-high Booties',
+      price: 40.00,
+      quantity: 10,
+      description:'So versititle and so fashionable!  The extra-long knit sock can be rolled down, on warmer days, and up when the air is crisp.  This boot also features a flexible rubber sole - perfect for Pepe\'s pads.',
+      image_url: 'https://images-na.ssl-images-amazon.com/images/I/51IJu14FSCL._SL250_.jpg',
+      created_at: new Date('2016-06-26 14:26:16 UTC'),
+      updated_at: new Date('2016-06-26 14:26:16 UTC')
+    },
+    {
+      id: 4,
+      category_id: 3,
+      promotion_id: 2,
+      name: 'Caninie Converse',
+      price: 38.99,
+      quantity: 6,
+      description:'Back by popular demand - high-tops!  Every dog needs to showcase his personality with his own unique pair of Converse kicks!  Man\'s best friend just got a pair of Man\'s best shoe!',
+      image_url: 'https://5.imimg.com/data5/MV/XS/MY-26604747/dog-shoes-250x250.jpg',
+      created_at: new Date('2016-06-26 14:26:16 UTC'),
+      updated_at: new Date('2016-06-26 14:26:16 UTC')
+    },
+    {
+      id: 5,
+      category_id: 4,
+      promotion_id: 1,
+      name: 'Mesh Slip-On',
+      price: 19.99,
+      quantity: 8,
+      description:'Perfect for trotting around the house or a quick walk to the mailbox to greet the Mail Man.  Our Mesh Slip-On\'s have a textured sole - great for houses with slick floors - and are super lightweight, so Spot\'s feet will stay cool and comfy.',
+      image_url: 'https://www.marshallspetzone.com/3663-home_default/pawzone-red-summer-mesh-dog-shoes-small.jpg',
+      created_at: new Date('2016-06-26 14:26:16 UTC'),
+      updated_at: new Date('2016-06-26 14:26:16 UTC'),
+    },
+    {
+      id: 6,
+      category_id: 2,
+      promotion_id: 5,
+      name: 'Rain Booties',
+      price: 27.99,
+      quantity: 3,
+      description:'No one likes wet feet - especially your furry friend.  These flexible rubber booties in a delightful fuschia makes any rainy day a little more fun!',
+      image_url: 'https://images-na.ssl-images-amazon.com/images/I/41sf1Dee%2BcL._SL250_.jpg',
+      created_at: new Date('2016-06-26 14:26:16 UTC'),
+      updated_at: new Date('2016-06-26 14:26:16 UTC'),
+    },
+    {
+      id: 7,
+      category_id: 1,
+      promotion_id: 5,
+      name: 'Snowy Boots',
+      price: 36.00,
+      quantity: 9,
+      description:'Max will stay toasty in these Gore-Tex lined boots made for those days when the snow falls and the wind blows, making gray winter days a joyous adventure!',
+      image_url: 'https://images-na.ssl-images-amazon.com/images/I/51D3%2Bc9MdyL._SL250_.jpg',
+      created_at: new Date('2016-06-26 14:26:16 UTC'),
+      updated_at: new Date('2016-06-26 14:26:16 UTC'),
+    },
+    {
+      id: 8,
+      category_id: 2,
+      promotion_id: 2,
+      name: 'Starry Summer Sandals',
+      price: 24.99,
+      quantity: 2,
+      description:'Fashionistas unite! The Starry Summer Sandals have soft leather straps and stylish star details.  Heads will surely turn when you and your fab furry friend sashay down the street!',
+      image_url: 'http://img.everychina.com/pic/36923556-250x250-1/pvc_sandals_for_dogs.jpg',
+      created_at: new Date('2016-06-26 14:26:16 UTC'),
+      updated_at: new Date('2016-06-26 14:26:16 UTC'),
+    },
+    {
+      id: 9,
+      category_id: 3,
+      promotion_id: 5,
+      name: 'Anti-Slip Blue Suede Shoes',
+      price: 50.99,
+      quantity: 6,
+      description:'You dog will be "The King" of the pack when he wears these Anit-Slip Blue Suede Shoes.  Natural suede, sustainably sourced will make your hound dog howl with delight.',
+      image_url: 'https://www.marshallspetzone.com/2389-home_default/pawzone-anti-slip-aqua-blue-shoes-for-dogs.jpg',
+      created_at: new Date('2016-06-26 14:26:16 UTC'),
+      updated_at: new Date('2016-06-26 14:26:16 UTC'),
+    },
+    {
+      id: 10,
+      category_id: 4,
+      promotion_id: 4,
+      name: 'Leopard Loungers',
+      price: 21.75,
+      quantity: 2,
+      description:'After an adventurous day, it\'s nice for Fido to curl up with our Leopard Loungers.  Super soft fleece is breathable, yet cozy making Fido feel like the luckiest dog in the world!',
+      image_url: 'http://g04.a.alicdn.com/kf/HTB1RNUpKVXXXXXmXpXXq6xXFXXXQ/Factory-Price-Large-Leopard-Waterproof-Pet-Dogs-Cat-Protective-Rain-Shoes-Boots-Booties-Multi-Colors.jpg_250x250.jpg',
+      created_at: new Date('2016-06-26 14:26:16 UTC'),
+      updated_at: new Date('2016-06-26 14:26:16 UTC'),
+    },
+    {
+      id: 11,
+      category_id: 2,
+      promotion_id: 5,
+      name: 'Petit Paw Protectors',
+      price: 15.00,
+      quantity: 4,
+      description:'Just for our petit pups: mini-booties for your favorite Min-Pin or Teacup Yorkie, because little paws get big chills.  And, now these tiny treasures are lined with genuine lambswool - a dog\'s best friend!',
+      image_url: 'http://petfashion.com.ua/3599-home_default/winter-boots-for-dogs.jpg',
+      created_at: new Date('2016-06-26 14:26:16 UTC'),
+      updated_at: new Date('2016-06-26 14:26:16 UTC'),
+    },
+    {
+      id: 12,
+      category_id: 3,
+      promotion_id: 5,
+      name: 'Safety First Booties',
+      price: 17.00,
+      quantity: 7,
+      description:'See and be seen - but in a good way!  Make sure you and your tail-wagging companion are venturing out into to the world with safety as a proirity in these reflective booties.',
+      image_url: 'https://4.imimg.com/data4/BH/PV/MY-4245083/dog-shoes-250x250.jpg',
+      created_at: new Date('2016-06-26 14:26:16 UTC'),
+      updated_at: new Date('2016-06-26 14:26:16 UTC'),
+    },
+  ])
+  })
+  .then(() => {
+    return knex.raw(
+      "SELECT setval('products_id_seq', (SELECT MAX(id) FROM products))"
+    )
+  })
+}
