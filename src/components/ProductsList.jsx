@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import '../App.css';
 
 class ProductsList extends Component {
@@ -14,10 +15,11 @@ class ProductsList extends Component {
     return (
       <div className="ProductsList">
         <h1>Products</h1>
+        <ul>
         {this.state.products.map(product =>
-          <div key={product.id}>{product.product_name}</div>
-
+          <li><Link to={`/products/${product.pid}`} key={product.pid}>{product.product_name}</Link></li>
         )}
+      </ul>
       </div>
     );
   }

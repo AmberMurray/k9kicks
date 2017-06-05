@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import '../App.css';
 
-class Product extends Component {
+class ProductDetail extends Component {
   state = {product: []}
   componentDidMount() {
-   fetch('/products/:id')
+   fetch(`/api/products/${this.props.params.id}`)
       .then(res => {
         return res.json();
       })
@@ -13,11 +13,10 @@ class Product extends Component {
   render() {
     return (
       <div className="Product">
-        <h1>{this.state.product.product_name}</h1>
-          <div key={this.state.product.id}>{this.state.product.product_name}</div>
-        )}
+        <h1>{this.state.product[0].product_name}</h1>
+          <div key={this.state.product[0].product_id}>{this.state.product[0].product_name}</div>
       </div>
     );
   }
 }
-export default Product;
+export default ProductDetail;
