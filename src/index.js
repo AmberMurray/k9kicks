@@ -6,6 +6,7 @@ import ProductsList from './components/ProductsList';
 import ProductDetail from './components/ProductDetail';
 import './index.css';
 
+
 ReactDOM.render((
   <Router history={browserHistory}>
     <Route path ="/" component={App}/>
