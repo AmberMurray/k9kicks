@@ -3,7 +3,6 @@ exports.up = (knex => {
     table.increments();
     table.integer('category_id').notNullable();
     table.integer('promotion_id').notNullable();
-    table.integer('review_id');
     table.string('name').notNullable();
     table.decimal('price').notNullable();
     table.integer('quantity').notNullable();
