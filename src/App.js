@@ -8,7 +8,7 @@ class App extends Component {
     fetch('/users')
       .then(res => {
         console.log('RES', res)
-        res.json()
+        return res.json()
       })
       .then(users => this.setState({ users }))
       .catch(err => {
