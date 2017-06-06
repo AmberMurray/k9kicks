@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const knex = require('../db/connection');
 
-//include bcrypt
+//include bcrypt in authentication
 router.get('/', (req, res, next) => {
-  const user = { username : req.body.username,
-                 password: req.body.password }
+  const user = { username : req.query.username,
+                 password: req.query.password }
   knex('users')
     .where({user})
     .then(user => res.json(user))
