@@ -4,10 +4,12 @@ import { ResponsiveEmbed  } from 'react-bootstrap';
 
 
 const responsiveEmbedInstance = (
-  <div style={{width: 660, height: 'auto'}}>
+  <div className='container'>
+  <div className='col-md-6 col-md-offset-3'>
     <ResponsiveEmbed a16by9>
       <embed type="image/svg+xml" src="http://aprilpug.com/wp-content/uploads/2014/03/Dog-Shoes.jpg" />
     </ResponsiveEmbed>
+  </div>
   </div>
 );
 
