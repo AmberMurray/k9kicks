@@ -47,3 +47,19 @@ div.navbar-collapse.collapse {
 .discount {
   color: red;
 }
+
+.jumbotron {
+  padding-top: 0;
+}
+
+.home-tagline {
+  font-family: 'Diplomata', cursive;
+  color: #F373AD;
+  z-index: 1;
+  margin-top: 50px;
+}
+
+.nerddog {
+  z-index: -1;
+>>>>>>> home-view
+}
