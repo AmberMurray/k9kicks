@@ -10,7 +10,7 @@ class ProductDetail extends Component {
     super(props);
     this.state = {
       product: '',
-      productReviews: ''
+      productReviews: []
     };
   }
 
@@ -39,9 +39,25 @@ class ProductDetail extends Component {
     }
   }
 
+
+
   render() {
+
+    const reviews = this.state.productReviews.map((productReview) => {
+        return(
+          <Col xs={12} md={14}key={productReview.pid}>
+            <Thumbnail>
+              <h4>{productReview.content}</h4>
+              <h4>Rating: {productReview.rating}</h4>
+              <h4>Left by: {productReview.username}</h4>
+            </Thumbnail>
+          </Col>
+        )
+      })
+
+
     const thumb = (
-      <Col xs={6} md={4} >
+      <Col xs={12} md={14} >
         <Thumbnail src={this.state.product.image_url} alt="200x200">
           <h3>{this.state.product.product_name}</h3>
           <p>{this.state.product.description}</p>
@@ -55,15 +71,26 @@ class ProductDetail extends Component {
           <p>
             <Button bsStyle="primary">Add to cart</Button>&nbsp;
           </p>
+
         </Thumbnail>
+          <h3>Product Reviews</h3>
+          {reviews}
+          <p>
+            <Button bsStyle="primary">Add Review</Button>&nbsp;
+          </p>
       </Col>
     );
+
+
+
 
     return (
       <Grid>
         <Row>
           {thumb}
+
         </Row>
+
       </Grid>
     );
   }
