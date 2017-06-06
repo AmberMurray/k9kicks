@@ -1,5 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: ;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.1em;
+  background-color: #eaeaea;
 }
