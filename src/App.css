@@ -59,6 +59,6 @@ div.navbar-collapse.collapse {
   margin-top: 50px;
 }
 
-.nerddog {
-  z-index: -1;
+.nerddog-pic {
+  background-image: url('/images/nerddog.jpg');
 }

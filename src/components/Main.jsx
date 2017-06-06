@@ -5,7 +5,7 @@ import { Image } from 'react-bootstrap';
 
 const jumbotronInstance = (
   <div className="container-fluid nerddog-pic">
-
+    
 
   </div>
 );
