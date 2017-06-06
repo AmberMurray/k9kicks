@@ -43,3 +43,8 @@ div.navbar-collapse.collapse {
   color: #fff;
   font-size: 25px;
 }
+
+.home-image img {
+  width: 600px;
+  height: 450px;
+}
