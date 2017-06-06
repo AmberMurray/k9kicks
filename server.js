@@ -1,4 +1,3 @@
-console.log('hello from express');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -6,7 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var index = require('./routes/index');
 var products = require('./routes/products');
+var orders = require('./routes/orders');
+var reviews = require('./routes/reviews');
+var users = require('./routes/users');
 
 var app = express();
 app.enable('trust proxy')
@@ -19,8 +22,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/', index);
+// app.use('*', function(req, res, next) {
+//   res.sendFile('index.html', {root: path.join(__dirname, 'public')})
+// })
+
+app.use('/', index);
 app.use('/api/products', products);
+app.use('/api/orders', orders);
+app.use('/api/reviews', reviews);
+app.use('/api/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

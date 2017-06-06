@@ -9,7 +9,6 @@ class ProductsList extends Component {
       products: []
     };
   }
-
   componentDidMount() {
    fetch('/api/products')
       .then(res => {

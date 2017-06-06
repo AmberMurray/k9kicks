@@ -27,14 +27,13 @@ router.post('/:id/orders', (req, res, next) => {
     .insert({ order })
     .returning('*')
     .then(order => {
-      let order_details = [];
-      order_details.push({order_id: order.id,
-      product_id: ,
-      quantity:)
-
+      let order_details = req.body.order_details.map((item) =>{
+        item.order_id = order.id;
+        return item;
+      })
       return knex('order_details')
-        .insert({ order_details })
-        .then({
+        .insert(order_details)
+        .then(() => {
           res.json(order)
         })
     })
