@@ -43,3 +43,7 @@ div.navbar-collapse.collapse {
   color: #fff;
   font-size: 25px;
 }
+
+.discount {
+  color: red;
+}
