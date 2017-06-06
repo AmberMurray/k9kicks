@@ -17,7 +17,6 @@ const navbarInstance = (
         <NavItem eventKey={1} href="/products">Shop</NavItem>
         <NavItem eventKey={2} href="/login">Login</NavItem>
         <NavItem eventKey={3} href="/shoppingCart"><Glyphicon glyph="shopping-cart"/></NavItem>
-
       </Nav>
     </Navbar.Collapse>
   </Navbar>
