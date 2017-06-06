@@ -44,7 +44,17 @@ div.navbar-collapse.collapse {
   font-size: 25px;
 }
 
-.home-image img {
-  width: 600px;
-  height: 450px;
+.jumbotron {
+  padding-top: 0;
+}
+
+.home-tagline {
+  font-family: 'Diplomata', cursive;
+  color: #F373AD;
+  z-index: 1;
+  margin-top: 50px;
+}
+
+.nerddog {
+  z-index: -1;
 }
