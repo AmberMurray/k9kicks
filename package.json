@@ -10,6 +10,7 @@
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
     "debug": "^2.6.8",
+    "express": "^4.15.3",
     "express-generator": "^4.15.0",
     "knex": "^0.13.0",
     "pg": "^6.2.3",
