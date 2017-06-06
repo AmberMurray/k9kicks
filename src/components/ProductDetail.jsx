@@ -1,26 +1,51 @@
 import React, { Component } from 'react';
+import Header from './Header';
+import Footer from './Footer';
 import '../App.css';
+import axios from 'axios';
 
 class ProductDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: []
+      product: '',
+      productReviews: ''
     };
   }
-  componentDidMount() {
-   fetch(`/api/products/${this.props.params.id}`)
-      .then(res => {
-        return res.json();
+
+  componentWillMount() {
+   axios.get(`/api/products/${this.props.params.id}`)
+      .then(response => {
+
+        console.log(response);
+        this.setState({
+          product : response.data[0],
+          productReviews: response.data[1]
+
+        })
       })
-      .then(product => this.setState({ product }));
+      .catch(err => {
+        console.log(err)
+      })
   }
+
   render() {
+
     return (
       <div className="Product">
+        <Header />
+        <h1>Hello</h1>
         <h1>{this.state.product.product_name}</h1>
+        <p>{this.state.product.description}</p>
+
+
+
           <div key={this.state.product.product_id}>{this.state.product.product_name}</div>
+          <div>  <Footer /></div>
+
       </div>
+
+
     );
   }
 }
