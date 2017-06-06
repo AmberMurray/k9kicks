@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { Image, Grid, Row, Col, Thumbnail, Button, DropdownButton, MenuItem } from 'react-bootstrap';
+import SideBar from './Sidebar';
 import '../App.css';
 
 class ProductsList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: []
+      products: [],
+      filter: ''
     };
   }
 
@@ -16,20 +18,31 @@ class ProductsList extends Component {
       .then(res => {
         return res.json();
       })
-      .then(products => this.setState({ products }));
+      .then(products => {
+        this.setState({ products });
+      })
+  }
+
+  makeMenuItems(qty){
+    const menuItems = []
+    qty > 10? qty=10 : qty
+    for (let i=0; i<=qty ; i++){
+      menuItems.push(<MenuItem eventKey="{i}">{i}</MenuItem>)
+    }
+    return menuItems
   }
 
   render() {
     const thumb = this.state.products.map(product =>{
       return(
         <Col xs={6} md={4} key={product.pid}>
-          <Thumbnail src={product.image_url} alt="200x200">
-            <h3>{product.product_name}</h3>
-            <p>{product.description}</p>
+          <Thumbnail src={product.image_url} alt="image200x200">
+            <h3>
+            <Link to={`/products/${product.pid}`} key={product.pid}>{product.product_name}</Link></h3>
             <p>${product.price}</p>
             <span>
               <DropdownButton title="qty" id="bg-vertical-dropdown-2">
-                <MenuItem eventKey="1">Dropdown link</MenuItem>
+                {this.makeMenuItems(product.quantity)}
               </DropdownButton>
             </span>
             <p>
@@ -41,11 +54,16 @@ class ProductsList extends Component {
     })
 
     return (
-      <Grid>
-        <Row>
-          {thumb}
-        </Row>
-      </Grid>
+      <div>
+        <row>
+        <SideBar class="col-md-1" filter={this.state.filter}/>
+        <Grid class="col-md-10">
+          <Row>
+            {thumb}
+          </Row>
+        </Grid>
+      </row>
+      </div>
     );
   }
 }
