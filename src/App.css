@@ -23,7 +23,23 @@
   to { transform: rotate(360deg); }
 }
 
+div.navbar-collapse.collapse {
+  margin-top: 15px;
+}
+
 .navbar-inverse {
   background-color: #2D3E8C;
   border: #2D3E8C;
+  height: 80px;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #fff;
+  font-size: 25px;
+  margin-top: 15px;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+  color: #fff;
+  font-size: 25px;
 }

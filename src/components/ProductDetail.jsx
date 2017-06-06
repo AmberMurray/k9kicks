@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Header from './Header';
-import Footer from './Footer';
 import '../App.css';
 import axios from 'axios';
 
@@ -49,11 +47,25 @@ class ProductDetail extends Component {
       })
 
     return (
+
       <Grid>
         <Row>
           {thumb}
         </Row>
       </Grid>
+      //
+      // <div className="Product">
+      //   <h1>Hello</h1>
+      //   <h1>{this.state.product.product_name}</h1>
+      //   <p>{this.state.product.description}</p>
+      //
+      //
+      //
+      //     <div key={this.state.product.product_id}>{this.state.product.product_name}</div>
+      //
+      // </div>
+
+
     );
   }
 }
