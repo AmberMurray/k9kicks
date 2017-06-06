@@ -22,8 +22,9 @@ const navbarInstance = (
         </NavDropdown>
       </Nav>
       <Nav pullRight>
-        <NavItem eventKey={1} href="#">Login</NavItem>
-        <NavItem eventKey={2} href="#">Shopping Cart</NavItem>
+        <NavItem eventKey={1} href="/login">Login</NavItem>
+        <NavItem eventKey={2} href="/shoppingCart">Shopping Cart</NavItem>
+        <span className="glyphicon glyphicon-shopping-cart" img style=“margin: 0px 10px”></span>
       </Nav>
     </Navbar.Collapse>
   </Navbar>
