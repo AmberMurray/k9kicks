@@ -3,7 +3,13 @@ import { Link } from 'react-router';
 import '../App.css';
 
 class ProductsList extends Component {
-  state = {products: []}
+  constructor(props) {
+    super(props);
+    this.state = {
+      products: []
+    };
+  }
+
   componentDidMount() {
    fetch('/api/products')
       .then(res => {
