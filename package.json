@@ -13,6 +13,7 @@
     "express": "^4.15.3",
     "express-generator": "^4.15.0",
     "knex": "^0.13.0",
+    "morgan": "^1.8.2",
     "pg": "^6.2.3",
     "react": "^15.5.4",
     "react-bootstrap": "^0.31.0",
@@ -21,7 +22,6 @@
     "serve-favicon": "^2.4.3"
   },
   "devDependencies": {
-    "morgan": "^1.8.2",
     "nodemon": "^1.11.0",
     "react-scripts": "1.0.7"
   },
