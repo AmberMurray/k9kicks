@@ -52,13 +52,8 @@ div.navbar-collapse.collapse {
   padding-top: 0;
 }
 
-.home-tagline {
+.home-tagline h1 {
   font-family: 'Diplomata', cursive;
   color: #F373AD;
-  z-index: 1;
   margin-top: 50px;
-}
-
-.nerddog-pic {
-  background-image: url('/images/nerddog.jpg');
 }

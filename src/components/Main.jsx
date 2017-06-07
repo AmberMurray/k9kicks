@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import '../App.css';
 import { Image } from 'react-bootstrap';
+import Background from './nerddog.jpg'
 
+let sectionStyle = {
+  width: '100%',
+  height: '4000px',
+  backgroundImage: `url(${Background})`
+}
 
-const jumbotronInstance = (
-  <div className="container-fluid nerddog-pic">
-    
-
-  </div>
-);
 
 
 class Main extends Component {
   render() {
     return (
-      jumbotronInstance
+    <section style={ sectionStyle}></section>
     )
   }
 }

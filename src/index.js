@@ -6,14 +6,21 @@ import ProductsList from './components/ProductsList';
 import ProductDetail from './components/ProductDetail';
 import Header from './components/Header';
 import Main from './components/Main';
+import Checkout from './components/Checkout';
+import ShoppingCart from './components/ShoppingCart';
 import './index.css';
 
 
 ReactDOM.render((
-  <Router history={browserHistory}>
-    <Route path ="/" component={App}/>
-    <Route path ="/products" component={ProductsList}/>
-    <Route path ="/products/:id" component={ProductDetail}/>
-  </Router>)
+  <div>
+
+    <Router history={browserHistory}>
+      <Route path ="/" component={App}/>
+      <Route path ="/products" component={ProductsList}/>
+      <Route path ="/products/:id" component={ProductDetail}/>
+      <Route path ="/checkout" component={Checkout}/>
+      <Route path ="/shoppingcart" component={ShoppingCart}/>
+    </Router>
+  </div>)
   ,(document.getElementById('root'))
 );
