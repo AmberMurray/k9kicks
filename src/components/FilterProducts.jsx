@@ -16,11 +16,13 @@ class FilterProducts extends Component {
     return (
       <div className="side-bar well">
         <h4>Filter by Category</h4>
+        <hr></hr>
         <div className="prod-filter">
           <p><a href="#" key="Seasonal" ref="Seasonal"  onClick={this.changeFilter.bind(this)}>Seasonal</a></p>
           <p><a href="#" key="Fashion" ref="Fashion" onClick={this.changeFilter.bind(this)}>Fashion</a></p>
           <p><a href="#" key="Athletic" ref="Athletic" onClick={this.changeFilter.bind(this)}>Athletic</a></p>
           <p><a href="#" key="Casual" ref="Casual" onClick={this.changeFilter.bind(this)}>Casual</a></p>
+          <p><a href="#" key="All" ref="All" onClick={this.changeFilter.bind(this)}>All</a></p>
         </div>
       </div>
     );

@@ -42,7 +42,8 @@ class ProductsList extends Component {
   }
 
   render() {
-    let filteredProducts = this.state.products.filter(product => {
+    let filteredProducts = []
+    this.state.filter === "All" ? filteredProducts = this.state.products : filteredProducts = this.state.products.filter(product => {
       return product.category_name.indexOf(this.state.filter) != -1;})
 
     const thumb = filteredProducts.map(product =>{
@@ -68,7 +69,6 @@ class ProductsList extends Component {
 
     return (
     <div className="container-fluid">
-      <Header />
             <SideBar className="col-md-1" filter={this.state.filter} setFilter={this.setFilter.bind(this)}/>
             <Grid class="col-md-10">
           <Row>
