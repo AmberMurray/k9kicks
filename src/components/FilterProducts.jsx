@@ -8,16 +8,19 @@ class FilterProducts extends Component {
     super(props);
   }
 
+  changeFilter(event){
+    this.props.setFilter(event.target.innerText);
+  }
 
   render() {
     return (
       <div>
         <p>Filter by Category</p>
         <div>
-          <p><a href="#">Seasonal</a></p>
-          <p><a href="#">Fashion</a></p>
-          <p><a href="#">Athletic</a></p>
-          <p><a href="#">Casual</a></p>
+          <p><a href="#" key="Seasonal" ref="Seasonal"  onClick={this.changeFilter.bind(this)}>Seasonal</a></p>
+          <p><a href="#" key="Fashion" ref="Fashion" onClick={this.changeFilter.bind(this)}>Fashion</a></p>
+          <p><a href="#" key="Athletic" ref="Athletic" onClick={this.changeFilter.bind(this)}>Athletic</a></p>
+          <p><a href="#" key="Casual" ref="Casual" onClick={this.changeFilter.bind(this)}>Casual</a></p>
         </div>
     </div>
     );

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { Image, Grid, Row, Col, Thumbnail, Button, DropdownButton, MenuItem } from 'react-bootstrap';
+import { Grid, Row, Col, Thumbnail, Button, DropdownButton, MenuItem } from 'react-bootstrap';
+import ProductDetail from './ProductDetail'
 import SideBar from './Sidebar';
 import '../App.css';
 
@@ -32,14 +33,25 @@ class ProductsList extends Component {
     return menuItems
   }
 
+  setFilter(value){
+    console.log("in function", value);
+    this.setState({
+     filter : value
+   })
+  }
+
   render() {
-    const thumb = this.state.products.map(product =>{
+    let filteredProducts = this.state.products.filter(product => {
+      return product.category_name.indexOf(this.state.filter) != -1;})
+
+    const thumb = filteredProducts.map(product =>{
       return(
         <Col xs={6} md={4} key={product.pid}>
           <Thumbnail src={product.image_url} alt="image200x200">
             <h3>
             <Link to={`/products/${product.pid}`} key={product.pid}>{product.product_name}</Link></h3>
-            <p>${product.price}</p>
+            <p>{product.price}</p>
+            {/* <p className='discount'><ProductDetail getDiscountPrice={getDiscountPrice(product.price)}/></p> */}
             <span>
               <DropdownButton title="qty" id="bg-vertical-dropdown-2">
                 {this.makeMenuItems(product.quantity)}
@@ -56,8 +68,8 @@ class ProductsList extends Component {
     return (
       <div>
         <row>
-        <SideBar class="col-md-1" filter={this.state.filter}/>
-        <Grid class="col-md-10">
+          <SideBar className="col-md-1" filter={this.state.filter} setFilter={this.setFilter.bind(this)}/>
+          <Grid className="col-md-9">
           <Row>
             {thumb}
           </Row>

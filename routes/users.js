@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const knex = require('../db/connection');
-
+const knex = require('../db/connection.js');
+console.log("in users route");
 //include bcrypt in authentication
 router.get('/', (req, res, next) => {
   const user = { username : req.query.username,
@@ -9,6 +9,14 @@ router.get('/', (req, res, next) => {
   knex('users')
     .where({user})
     .then(user => res.json(user))
+    .catch(err => next(err));
+});
+
+//customer details
+router.get('/:id', (req, res, next) => {
+  knex('customers')
+    .where('user_id', req.params.id)
+    .then(customer => res.json(customer))
     .catch(err => next(err));
 });
 
