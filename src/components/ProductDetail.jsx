@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from './Header';
 import { Link } from 'react-router';
 import { Image, Grid, Row, Col, Thumbnail, Button, DropdownButton, MenuItem,FormGroup, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap';
 import '../App.css';
@@ -105,14 +106,16 @@ class ProductDetail extends Component {
     )
 
     return (
-      <Grid>
-        <Row>
+    <div>
+      <Header />
+        <Grid>
+          <Row>
           {thumb}
           {reviews}
           {addReview}
-        </Row>
-
-      </Grid>
+          </Row>
+        </Grid>
+      </div>
     );
   }
 }
