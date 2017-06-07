@@ -14,7 +14,7 @@ let sectionStyle = {
 class Main extends Component {
   render() {
     return (
-    <section style={ sectionStyle}></section>
+    <h1>hellow</h1>
     )
   }
 }
