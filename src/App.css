@@ -57,7 +57,7 @@ a:hover, a.home-button-link:hover {
 }
 
 .main {
-  height: 1000px;
+  height: 100vh;
 }
 
 .home-image {
@@ -86,7 +86,7 @@ a:hover, a.home-button-link:hover {
 
 .home-tagline {
   font-family: 'Cormorant SC', serif;
-  font-family: bold;
+  font-weight: bold;
   letter-spacing: 0.2em;
   color: #F373AD;
   margin-top: 5px;
@@ -96,4 +96,16 @@ a:hover, a.home-button-link:hover {
   width: 200px;
   background-color: #2D3E8C;
   border: 0;
+}
+
+.side-bar {
+  position: absolute;
+  left: 100px;
+  top: 200px;
+  color: #2D3E8C;
+}
+
+.prod-filter {
+  text-align: center;
+  font-size: 20px;
 }

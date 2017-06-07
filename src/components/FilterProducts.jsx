@@ -8,12 +8,12 @@ class FilterProducts extends Component {
     super(props);
   }
 
-
   render() {
     return (
-      <div>
-        <p>Filter by Category</p>
-        <div>
+      <div className="side-bar well">
+        <h4 >Filter by Category</h4>
+        <hr></hr>
+        <div className="prod-filter">
           <p><a href="#">Seasonal</a></p>
           <p><a href="#">Fashion</a></p>
           <p><a href="#">Athletic</a></p>

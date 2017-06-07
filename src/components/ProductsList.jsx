@@ -37,7 +37,7 @@ class ProductsList extends Component {
     const thumb = this.state.products.map(product =>{
       return(
         <Col xs={6} md={4} key={product.pid}>
-          <Thumbnail src={product.image_url} alt="image200x200">
+          <Thumbnail className="thumbnail" src={product.image_url} alt="image200x200">
             <h3>
             <Link to={`/products/${product.pid}`} key={product.pid}>{product.product_name}</Link></h3>
             <p>${product.price}</p>
@@ -55,16 +55,13 @@ class ProductsList extends Component {
     })
 
     return (
-    <div>
-
-          <row>
+    <div className="container-fluid">
             <SideBar class="col-md-1" filter={this.state.filter}/>
             <Grid class="col-md-10">
           <Row>
             {thumb}
           </Row>
         </Grid>
-      </row>
   </div>
 
     );
