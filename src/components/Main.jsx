@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 import '../App.css';
-import { Image } from 'react-bootstrap';
-import Background from './nerddog.jpg'
-
-let sectionStyle = {
-  width: '100%',
-  height: '4000px',
-  backgroundImage: `url(${Background})`
-}
+import { Button } from 'react-bootstrap';
 
 
 
 class Main extends Component {
   render() {
     return (
-    <section style={ sectionStyle}></section>
+      <div className='main'>
+        <section className="home-image"></section>
+        <h1 className="home-name">k9Kicks</h1>
+        <h1 className="home-tagline">Look Sharp</h1>
+        <Button><Link to="/products">Shop</Link></Button>
+      </div>
     )
   }
 }
+
 export default Main;

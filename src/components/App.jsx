@@ -5,11 +5,12 @@ import Main from './Main';
 
 class App extends Component {
   render() {
+
+    console.log(this.props.children);
     return (
       <div>
-        <Header />
-        {this.props.children}
-        <Main />
+        { this.props.children ?  <Header /> : null }
+        {this.props.children || <Main />}
       </div>
     );
   }

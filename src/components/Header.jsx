@@ -9,7 +9,7 @@ class Header extends Component {
         <Navbar inverse collapseOnSelect>
           <Navbar.Header>
             <Navbar.Brand>
-              <Link to='/'>k9kicks</Link>
+              <Link className="nav-link" to='/'>k9kicks</Link>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
@@ -17,9 +17,9 @@ class Header extends Component {
             <Nav>
             </Nav>
             <Nav pullRight>
-              <NavItem><Link to="/products">Shop</Link></NavItem>
-              <NavItem><Link to="/login">LogIn</Link></NavItem>
-              <NavItem><Link to="/shoppingcart"><Glyphicon glyph="shopping-cart"/></Link></NavItem>
+              <NavItem><Link className="nav-link" to="/products">Shop</Link></NavItem>
+              <NavItem><Link className="nav-link" to="/login">LogIn</Link></NavItem>
+              <NavItem><Link className="nav-link" to="/shoppingcart"><Glyphicon glyph="shopping-cart"/></Link></NavItem>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

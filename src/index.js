@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import App from './components/App';
 import ProductsList from './components/ProductsList';
 import ProductDetail from './components/ProductDetail';
@@ -15,11 +15,12 @@ ReactDOM.render((
   <div>
 
     <Router history={browserHistory}>
-      <Route path ="/" component={App}/>
-      <Route path ="/products" component={ProductsList}/>
-      <Route path ="/products/:id" component={ProductDetail}/>
-      <Route path ="/checkout" component={Checkout}/>
-      <Route path ="/shoppingcart" component={ShoppingCart}/>
+      <Route path ="/" component={App}>
+        <Route path ="/products" component={ProductsList}/>
+        <Route path ="/products/:id" component={ProductDetail}/>
+        <Route path ="/checkout" component={Checkout}/>
+        <Route path ="/shoppingcart" component={ShoppingCart}/>
+      </Route>
     </Router>
   </div>)
   ,(document.getElementById('root'))

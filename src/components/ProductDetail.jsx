@@ -107,7 +107,7 @@ class ProductDetail extends Component {
 
     return (
     <div>
-      <Header />
+
         <Grid>
           <Row>
           {thumb}

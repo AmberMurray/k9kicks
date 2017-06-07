@@ -7,7 +7,7 @@ import { Nav, Navbar, MenuItem, NavItem, NavDropdown, Image, Glyphicon} from 're
 class ShoppingCart extends Component {
   render() {
     return (
-      <Header />
+      <h1>hi</h1>
       );
   }
 }

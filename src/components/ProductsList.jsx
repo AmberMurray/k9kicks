@@ -56,7 +56,7 @@ class ProductsList extends Component {
 
     return (
     <div>
-      <Header />
+
           <row>
             <SideBar class="col-md-1" filter={this.state.filter}/>
             <Grid class="col-md-10">
