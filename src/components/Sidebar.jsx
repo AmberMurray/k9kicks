@@ -15,7 +15,7 @@ class SideBar extends Component {
 
   render() {
     return (
-      <FilterProducts filter={this.props.filter}/>
+      <FilterProducts filter={this.props.filter} setFilter={this.props.setFilter}/>
     );
   }
 }

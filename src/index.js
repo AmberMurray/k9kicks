@@ -20,6 +20,8 @@ ReactDOM.render((
         <Route path ="/products/:id" component={ProductDetail}/>
         <Route path ="/checkout" component={Checkout}/>
         <Route path ="/shoppingcart" component={ShoppingCart}/>
+        <Route path ="/users" component={Checkout}/>
+        <Route path ="/users/:id" component={ProductDetail}/>
       </Route>
     </Router>
   </div>)
