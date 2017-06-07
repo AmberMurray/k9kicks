@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import Header from './Header';
 import { Link } from 'react-router';
-import { Image, Grid, Row, Col, Thumbnail, Button, DropdownButton, MenuItem } from 'react-bootstrap';
+import { Image, Grid, Row, Col, Thumbnail, Button, DropdownButton, MenuItem,FormGroup, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap';
 import '../App.css';
 import axios from 'axios';
 
@@ -42,7 +43,6 @@ class ProductDetail extends Component {
 
 
   render() {
-
     const reviews = this.state.productReviews.map((productReview) => {
         return(
           <Col xs={12} md={14}key={productReview.pid}>
@@ -54,7 +54,6 @@ class ProductDetail extends Component {
           </Col>
         )
       })
-
 
     const thumb = (
       <Col xs={12} md={14} >
@@ -71,27 +70,52 @@ class ProductDetail extends Component {
           <p>
             <Button bsStyle="primary">Add to cart</Button>&nbsp;
           </p>
-
         </Thumbnail>
           <h3>Product Reviews</h3>
-          {reviews}
-          <p>
-            <Button bsStyle="primary">Add Review</Button>&nbsp;
-          </p>
       </Col>
     );
 
-
-
+    const addReview = (
+      <Col xs={12} md={14}>
+        <h3>Add A Product Review</h3>
+        <Thumbnail>
+          <form>
+      <FormGroup
+        controlId="formBasicText">
+        <ControlLabel>Leave a Product Review</ControlLabel>
+        <FormControl
+          type="text"
+          value={this.state.value}
+          placeholder="Enter text"
+          onChange={this.handleChange}
+        />
+        <ControlLabel>Rating</ControlLabel>
+        <FormControl
+          type="text"
+          value={this.state.value}
+          placeholder="1 - 5 "
+          onChange={this.handleChange}
+        />
+      </FormGroup>
+    </form>
+    <p>
+      <Button bsStyle="primary">Add Review</Button>&nbsp;
+    </p>
+        </Thumbnail>
+      </Col>
+    )
 
     return (
-      <Grid>
-        <Row>
+    <div>
+      <Header />
+        <Grid>
+          <Row>
           {thumb}
-
-        </Row>
-
-      </Grid>
+          {reviews}
+          {addReview}
+          </Row>
+        </Grid>
+      </div>
     );
   }
 }

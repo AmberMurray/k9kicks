@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from './Header';
 import { Link } from 'react-router';
 import { Image, Grid, Row, Col, Thumbnail, Button, DropdownButton, MenuItem } from 'react-bootstrap';
 import SideBar from './Sidebar';
@@ -54,16 +55,18 @@ class ProductsList extends Component {
     })
 
     return (
-      <div>
-        <row>
-        <SideBar class="col-md-1" filter={this.state.filter}/>
-        <Grid class="col-md-10">
+    <div>
+      <Header />
+          <row>
+            <SideBar class="col-md-1" filter={this.state.filter}/>
+            <Grid class="col-md-10">
           <Row>
             {thumb}
           </Row>
         </Grid>
       </row>
-      </div>
+  </div>
+
     );
   }
 }
