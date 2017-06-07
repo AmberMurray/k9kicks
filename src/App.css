@@ -43,37 +43,17 @@ div.navbar-collapse.collapse {
   font-size: 25px;
 }
 
-a.nav-link {
+a.nav-link, a.home-button-link {
   color: #fff;
 }
 
-a:hover {
+a:hover, a.home-button-link:hover {
   color: #F373AD;
   text-decoration: none;
 }
 
 .discount {
   color: red;
-}
-
-.home-name {
-  display: inline-block;
-  position: absolute;
-  right: 330px;
-  bottom: 400px;
-  font-weight: bolder;
-  font-size: 50px;
-  color: #2D3E8C;
-}
-
-.home-tagline {
-  display: inline-block;
-  position: absolute;
-  right: 200px;
-  bottom: 350px;
-  font-family: 'Diplomata', cursive;
-  color: #F373AD;
-  margin-top: 50px;
 }
 
 .main {
@@ -86,4 +66,34 @@ a:hover {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+.home-nav {
+  display: inline-block;
+  position: absolute;
+  right: 200px;
+  bottom: 200px;
+  text-align: center;
+
+}
+
+.home-name {
+  font-weight: bolder;
+  font-size: 50px;
+  color: #2D3E8C;
+  margin-top: 5px;
+}
+
+.home-tagline {
+  font-family: 'Cormorant SC', serif;
+  font-family: bold;
+  letter-spacing: 0.2em;
+  color: #F373AD;
+  margin-top: 5px;
+}
+
+.home-button {
+  width: 200px;
+  background-color: #2D3E8C;
+  border: 0;
 }
