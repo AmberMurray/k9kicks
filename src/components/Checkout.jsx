@@ -44,78 +44,60 @@ class Checkout extends Component {
   render() {
 
 const billing = (
-      <form onSubmit={this.handleSubmit} className="col-md-4 col-md-offset-1">
+      <form className="col-md-4 col-md-offset-1">
         <FormGroup >
         <ControlLabel>Billing Address </ControlLabel>
         <FormControl
           type="text"
-          value={this.state.value}
-          placeholder={this.state.user.first_name}
-          onChange={this.handleChange}
+          value={this.state.user.first_name}
           />
         <FormControl.Feedback />
         <HelpBlock>First Name </HelpBlock>
         <FormControl
           type="text"
-          value={this.state.value}
-          placeholder={this.state.user.last_name}
-          onChange={this.handleChange}
+          value={this.state.user.last_name}
           />
         <FormControl.Feedback />
         <HelpBlock>Last Name </HelpBlock>
         <FormControl
           type="text"
-          value={this.state.value}
-          placeholder={this.state.user.address_line1}
-          onChange={this.handleChange}
+          value={this.state.user.address_line1}
           />
         <FormControl.Feedback />
         <HelpBlock>Address Line 1 </HelpBlock>
         <FormControl
           type="text"
-          value={this.state.value}
-          placeholder={this.state.user.address_line2}
-          onChange={this.handleChange}
+          value={this.state.user.address_line2}
           />
         <FormControl.Feedback />
         <HelpBlock>Address Line 2 </HelpBlock>
         <FormControl
           type="text"
-          value={this.state.value}
-          placeholder={this.state.user.city}
-          onChange={this.handleChange}
+          value={this.state.user.city}
           />
         <FormControl.Feedback />
         <HelpBlock>City </HelpBlock>
         <FormControl
           type="text"
-          value={this.state.value}
-          placeholder={this.state.user.zipcode}
-          onChange={this.handleChange}
+          value={this.state.user.zipcode}
           />
         <FormControl.Feedback />
         <HelpBlock>Zip Code </HelpBlock>
         <FormControl
           type="text"
-          value={this.state.value}
-          placeholder={this.state.user.state}
-          onChange={this.handleChange}
+          value={this.state.user.state}
           />
         <FormControl.Feedback />
         <HelpBlock>State Code </HelpBlock>
         <FormControl
           type="text"
-          value={this.state.value}
-          placeholder={this.state.user.phone_number}
-          onChange={this.handleChange}
+          value={this.state.user.phone_number}
           />
         <FormControl.Feedback />
         <HelpBlock>Phone Number</HelpBlock>
         <FormControl
           type="text"
-          value={this.state.value}
-          placeholder={this.state.user.email}
-          onChange={this.handleChange}
+          value={this.state.user.email}
           />
         <FormControl.Feedback />
         <HelpBlock>Email </HelpBlock>
@@ -202,7 +184,7 @@ const billing = (
     </FormGroup>
 
     <Button bsStyle="primary" type="submit">
-      Continue Checkout
+      Update Shipping Address
     </Button>
   </form>
 
