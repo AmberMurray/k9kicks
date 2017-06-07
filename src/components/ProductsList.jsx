@@ -11,8 +11,9 @@ class ProductsList extends Component {
     super(props);
     this.state = {
       products: [],
-      filter: ''
+      filter: '',
     };
+    this.addItemToCart = this.addItemToCart.bind(this);
   }
 
   componentDidMount() {
@@ -27,18 +28,26 @@ class ProductsList extends Component {
 
   makeMenuItems(qty){
     const menuItems = []
-    qty > 10? qty=10 : qty
+    qty > 10 ? qty=10 : qty
     for (let i=0; i<=qty ; i++){
-      menuItems.push(<MenuItem eventKey="{i}">{i}</MenuItem>)
+      menuItems.push(<MenuItem eventkey="{i}">{i}</MenuItem>)
     }
     return menuItems
   }
 
   setFilter(value){
-    console.log("in function", value);
     this.setState({
      filter : value
    })
+  }
+
+  addItemToCart(product){
+    let newItem = {
+      product_id : product.pid,
+      product_name : product.product_name,
+      quantity : product.quantity,
+      price : product.price }
+    this.props.addToCart(newItem);
   }
 
   render() {
@@ -59,7 +68,7 @@ class ProductsList extends Component {
               </DropdownButton>
             </span>
             <p>
-              <Button bsStyle="primary">Add to cart</Button>&nbsp;
+              <Button id={product.pid} bsStyle="primary" data={product} onClick={() => this.addItemToCart(product)}>Add to cart</Button>&nbsp;
             </p>
           </Thumbnail>
         </Col>
@@ -68,10 +77,10 @@ class ProductsList extends Component {
 
     return (
     <div>
-      <Header />
+      <Header numberOfItems={this.props.numberOfItems}/>
           <row>
             <SideBar className="col-md-1" filter={this.state.filter} setFilter={this.setFilter.bind(this)}/>
-            <Grid class="col-md-10">
+            <Grid className="col-md-10">
           <Row>
             {thumb}
           </Row>

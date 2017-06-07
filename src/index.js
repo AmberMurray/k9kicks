@@ -13,15 +13,13 @@ import './index.css';
 
 ReactDOM.render((
   <div>
-
     <Router history={browserHistory}>
-      <Route path ="/" component={App}/>
-      <Route path ="/products" component={ProductsList}/>
-      <Route path ="/products/:id" component={ProductDetail}/>
-      <Route path ="/checkout" component={Checkout}/>
-      <Route path ="/shoppingcart" component={ShoppingCart}/>
-      <Route path ="/users" component={Checkout}/>
-      <Route path ="/users/:id" component={ProductDetail}/>
+      <Route path ="/" component={App}>
+        <Route path ="/products" component={ProductsList}/>
+        <Route path ="/products/:id" component={ProductDetail}/>
+        <Route path ="/checkout" component={Checkout}/>
+        <Route path ="/shoppingcart" component={ShoppingCart}/>
+      </Route>
     </Router>
   </div>)
   ,(document.getElementById('root'))
