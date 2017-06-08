@@ -17,9 +17,9 @@ class Header extends Component {
             <Nav>
             </Nav>
             <Nav pullRight>
-              <NavItem><Link className="nav-link" to="/products">Shop</Link></NavItem>
-              <NavItem><Link className="nav-link" to="/login">LogIn</Link></NavItem>
-              <NavItem><Link className="nav-link" to="/shoppingcart"><Glyphicon glyph="shopping-cart"/></Link></NavItem>
+              <NavItem><Link to="/products">Shop</Link></NavItem>
+              <NavItem><Link to="/login">LogIn</Link></NavItem>
+              <NavItem><Link to="/shoppingcart"><Glyphicon glyph="shopping-cart"/></Link><p>{this.props.numberOfItems}</p></NavItem>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

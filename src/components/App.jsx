@@ -4,13 +4,32 @@ import Header from './Header';
 import Main from './Main';
 
 class App extends Component {
-  render() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cart:[],
+      numberOfItems: 0
+    };
+    this.addToCart = this.addToCart.bind(this)
+  }
 
-    console.log(this.props.children);
+  addToCart(newItem){
+    this.setState({
+      cart: this.state.cart.concat(newItem),
+      numberOfItems: this.state.numberOfItems + 1
+    })
+  }
+
+  render() {
     return (
       <div>
-        { this.props.children ?  <Header /> : null }
-        {this.props.children || <Main />}
+        { this.props.children
+          ? <div>
+              <Header numberOfItems={this.state.numberOfItems}/>
+              {React.cloneElement(this.props.children, {...this.state, addToCart: this.addToCart})}
+            </div>
+          : <Main />
+        }
       </div>
     );
   }
