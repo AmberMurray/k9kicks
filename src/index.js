@@ -17,7 +17,7 @@ ReactDOM.render((
       <Route path ="/" component={App}>
         <Route path ="/products" component={ProductsList}/>
         <Route path ="/products/:id" component={ProductDetail}/>
-        <Route path ="/users/:id" component={Checkout}/>
+        <Route path ="/checkout" component={Checkout}/>
         <Route path ="/shoppingcart" component={ShoppingCart}/>
       </Route>
     </Router>

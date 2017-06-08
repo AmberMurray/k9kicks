@@ -11,7 +11,9 @@ class ProductsList extends Component {
     super(props);
     this.state = {
       products: [],
-      filter: '',
+      filter: 'All products',
+      filterBy: '',
+      sortBy: '',
       selectedQuantity: 1
     };
     this.addItemToCart = this.addItemToCart.bind(this);
@@ -37,10 +39,35 @@ class ProductsList extends Component {
     return menuItems
   }
 
-  setFilter(value){
+  setCategoryFilter(value){
     this.setState({
-     filter : value
+     filter : value,
+     filterBy: 'category'
    })
+  }
+
+  setPriceFilter(value){
+    this.setState({
+     filter : value,
+     filterBy: 'price'
+   })
+  }
+
+  filterByPrice(filteredProducts){
+    if (this.state.filter==="0"){
+      filteredProducts = this.state.products.filter(product => {
+      return product.price <= 25;
+    })} else if (this.state.filter==="25"){
+      filteredProducts = this.state.products.filter(product => {
+      return product.price >= 25 && product.price <=50;
+    })} else if (this.state.filter==="50"){
+      filteredProducts = this.state.products.filter(product => {
+      return product.price >= 50 && product.price <=75;
+    })} else {
+      filteredProducts = this.state.products.filter(product => {
+      return product.price >= 75;
+    })}
+    return filteredProducts
   }
 
   addItemToCart(product){
@@ -60,10 +87,35 @@ class ProductsList extends Component {
     });
   }
 
+  getDiscountPrice(product) {
+    if (product.rate !== 0 ){
+    const rate = ((product.rate) /100);
+    const price = (product.price);
+    return 'SALE PRICE: $' + (Math.round(((price - (rate * price)) * 100)) /100).toFixed(2);
+    }
+  }
+
+  sort(text){
+    this.setState({
+      sortBy : text
+    })
+  }
+
   render() {
     let filteredProducts = []
-    this.state.filter === "All" ? filteredProducts = this.state.products : filteredProducts = this.state.products.filter(product => {
+
+    this.state.filter === "All products" ? filteredProducts = this.state.products :
+    this.state.filterBy === "category" ?
+    filteredProducts = this.state.products.filter(product => {
       return product.category_name.indexOf(this.state.filter) != -1;})
+    : filteredProducts = this.filterByPrice(filteredProducts)
+
+    this.state.sortBy === "Low to High" ?
+      filteredProducts.sort(function(a,b){
+        return parseInt(a.price)  - parseInt(b.price);
+      }) : this.state.sortBy === "High to Low" ? filteredProducts.sort(function(a,b){
+        return parseInt(b.price)  - parseInt(a.price);
+      }) : filteredProducts
 
     const thumb = filteredProducts.map(product =>{
       return(
@@ -72,29 +124,27 @@ class ProductsList extends Component {
             <h3>
             <Link to={`/products/${product.pid}`} key={product.pid}>{product.product_name}</Link></h3>
             <p>{product.price}</p>
-            {/* <p className='discount'><ProductDetail getDiscountPrice={getDiscountPrice(product.price)}/></p> */}
+            <p className='discount'>{this.getDiscountPrice(product)}</p>
             <span>Qty&nbsp;
               <DropdownButton title={this.state.selectedQuantity}   id="bg-vertical-dropdown-2" >
                 {this.makeMenuItems(product.quantity)}
-              </DropdownButton>
-            </span>
-            <p>
+              </DropdownButton> &nbsp;
               <Button bsStyle="primary" onClick={() => this.addItemToCart(product)}>Add to cart</Button>&nbsp;
-            </p>
+            </span>
           </Thumbnail>
         </Col>
       )
     })
 
     return (
-    <div>
-      <SideBar className="col-md-1" filter={this.state.filter} setFilter={this.setFilter.bind(this)}/>
-      <Grid className="col-sm-8 col-md-offset-2">
-        <Row>
-          {thumb}
-        </Row>
-      </Grid>
-  </div>
+      <div>
+        <SideBar className="col-md-1"  setCategoryFilter={this.setCategoryFilter.bind(this)} setPriceFilter={this.setPriceFilter.bind(this)} sort={this.sort.bind(this)}/>
+        <Grid className="col-sm-8 col-md-offset-3">
+          <Row>
+            {thumb.length > 0 ? thumb : <p>No matching products found.</p>}
+          </Row>
+        </Grid>
+      </div>
     );
   }
 }

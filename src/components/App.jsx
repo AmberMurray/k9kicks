@@ -8,7 +8,7 @@ class App extends Component {
     super(props);
     this.state = {
       cart:[],
-      numberOfItems: 0
+      numberOfItems: 0,
     };
     this.addToCart = this.addToCart.bind(this)
     this.deleteCartItem = this.deleteCartItem.bind(this)
@@ -24,7 +24,7 @@ class App extends Component {
   deleteCartItem(item){
     const index = this.state.cart.indexOf(item)
     this.setState({
-      cart: this.state.data.filter((_, i) => i !== index),
+      cart: this.state.cart.filter((_, i) => i !== index),
       numberOfItems: this.state.numberOfItems - 1
     });
   }

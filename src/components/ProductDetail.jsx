@@ -18,8 +18,6 @@ class ProductDetail extends Component {
   componentWillMount() {
    axios.get(`/api/products/${this.props.params.id}`)
       .then(response => {
-
-        console.log(response);
         this.setState({
           product : response.data[0],
           productReviews: response.data[1]
@@ -31,16 +29,13 @@ class ProductDetail extends Component {
       })
   }
 
-
-  getDiscountPrice() {
-    if(this.state.product.rate !== 0) {
-    const rate = ((this.state.product.rate) /100);
-    const price = (this.state.product.price);
+  getDiscountPrice(product) {
+    if (product.rate !== 0 ){
+    const rate = ((product.rate) /100);
+    const price = (product.price);
     return 'SALE PRICE: $' + (Math.round(((price - (rate * price)) * 100)) /100).toFixed(2);
     }
   }
-
-
 
   render() {
     const reviews = this.state.productReviews.map((productReview) => {
@@ -61,7 +56,7 @@ class ProductDetail extends Component {
           <h3>{this.state.product.product_name}</h3>
           <p>{this.state.product.description}</p>
           <p>${this.state.product.price}</p>
-          <p className='discount'>{this.getDiscountPrice(this.state.product.price)}</p>
+          <p className='discount'>{this.getDiscountPrice(this.state.product)}</p>
           <span>
             <DropdownButton title="qty" id="bg-vertical-dropdown-2">
               <MenuItem eventKey="1">Dropdown link</MenuItem>

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
-
 import '../App.css';
-import { Link } from 'react-router';
+//import { Link } from 'react-router';
 import { FormGroup, ControlLabel, FormControl, HelpBlock, Image, Grid, Row, Col, Thumbnail, Button, DropdownButton, MenuItem} from 'react-bootstrap';
 import axios from 'axios';
 
@@ -16,7 +15,8 @@ class Checkout extends Component {
   }
 
   componentWillMount() {
-   axios.get(`/api/users/${this.props.params.id}`)
+   //axios.get(`/api/users/${this.props.params.id}`)
+   axios.get(`/api/users/2`)
       .then(response => {
 
         console.log(response);
@@ -191,7 +191,6 @@ const billing = (
   )
 
     return (
-
         <div className="container">
           {billing}
           {shipping}
