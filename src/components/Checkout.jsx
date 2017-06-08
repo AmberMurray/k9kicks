@@ -18,14 +18,11 @@ class Checkout extends Component {
    //axios.get(`/api/users/${this.props.params.id}`)
    axios.get(`/api/users/2`)
       .then(response => {
-
-        console.log(response);
         this.setState({
           user : response.data[0],
         })
       })
       .catch(err => {
-        console.log(err)
       })
   }
 

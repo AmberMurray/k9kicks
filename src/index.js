@@ -8,6 +8,7 @@ import Header from './components/Header';
 import Main from './components/Main';
 import Checkout from './components/Checkout';
 import ShoppingCart from './components/ShoppingCart';
+import Login from './components/Login';
 import './index.css';
 
 
@@ -19,6 +20,7 @@ ReactDOM.render((
         <Route path ="/products/:id" component={ProductDetail}/>
         <Route path ="/checkout" component={Checkout}/>
         <Route path ="/shoppingcart" component={ShoppingCart}/>
+        <Route path ="/login" component={Login}/>
       </Route>
     </Router>
   </div>)
