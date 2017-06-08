@@ -11,13 +11,22 @@ class App extends Component {
       numberOfItems: 0
     };
     this.addToCart = this.addToCart.bind(this)
+    this.deleteCartItem = this.deleteCartItem.bind(this)
   }
 
   addToCart(newItem){
     this.setState({
       cart: this.state.cart.concat(newItem),
-      numberOfItems: this.state.numberOfItems + 1
+      numberOfItems: this.state.numberOfItems + newItem.quantity
     })
+  }
+
+  deleteCartItem(item){
+    const index = this.state.cart.indexOf(item)
+    this.setState({
+      cart: this.state.data.filter((_, i) => i !== index),
+      numberOfItems: this.state.numberOfItems - 1
+    });
   }
 
   render() {
@@ -26,7 +35,7 @@ class App extends Component {
         { this.props.children
           ? <div>
               <Header numberOfItems={this.state.numberOfItems}/>
-              {React.cloneElement(this.props.children, {...this.state, addToCart: this.addToCart})}
+              {React.cloneElement(this.props.children, {...this.state, addToCart: this.addToCart, deleteCartItem: this.deleteCartItem})}
             </div>
           : <Main />
         }
