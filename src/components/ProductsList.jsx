@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import { Link } from 'react-router';
-import { Grid, Row, Col, Thumbnail, Button, DropdownButton, MenuItem } from 'react-bootstrap';
+import { Grid, Row, Col, Thumbnail, Button, DropdownButton, MenuItem,FormGroup , ControlLabel, FormControl } from 'react-bootstrap';
 import ProductDetail from './ProductDetail'
 import SideBar from './Sidebar';
 import '../App.css';
@@ -30,11 +30,11 @@ class ProductsList extends Component {
       })
   }
 
-  makeMenuItems(qty){
+  makeOptions(qty){
     const menuItems = []
     qty > 10 ? qty=10 : qty
     for (let i=1; i<=qty ; i++){
-      menuItems.push(<MenuItem eventkey="{i}" onSelect={() => this.updateQuantity} value={this.state.selectedQuantityValue}  >{i}</MenuItem>)
+      menuItems.push(<option value={i} onClick={() =>  this.updateQuantity(i)}>{i}</option>)
     }
     return menuItems
   }
@@ -81,7 +81,6 @@ class ProductsList extends Component {
   }
 
   updateQuantity(event){
-    console.log(this.state.selectedQuantity);
     this.setState({
       selectedQuantity: event.target.value
     });
@@ -123,28 +122,34 @@ class ProductsList extends Component {
           <Thumbnail className="thumbnail" src={product.image_url} alt="image200x200">
             <h3>
             <Link to={`/products/${product.pid}`} key={product.pid}>{product.product_name}</Link></h3>
-            <h4 className="discount" >$ {product.price}</h4>
-            {/* <p className='discount'><ProductDetail getDiscountPrice={getDiscountPrice(product.price)}/></p> */}
-            <div>
-              <DropdownButton title="qty" id="bg-vertical-dropdown-2">
+            <p>{product.price}</p>
+            <p className='discount'>{this.getDiscountPrice(product)}</p>
+            <span>
+              {/* <DropdownButton title="select quantity" id="bg-vertical-dropdown-2" >
                 {this.makeMenuItems(product.quantity)}
-              </DropdownButton>
-              <Button className="col-sm-offset-1" id={product.pid} bsStyle="primary" data={product} onClick={() => this.addItemToCart(product)}>Add to cart</Button>&nbsp;
-            </div>
+              </DropdownButton> &nbsp; */}
+              <FormGroup controlId="formControlsSelect">
+                <ControlLabel>Qty</ControlLabel>
+                <FormControl componentClass="select" placeholder="" onChange={this.updateQuantity.bind(this)}>
+                  {this.makeOptions(product.quantity)}
+                </FormControl>
+              </FormGroup>
+              <Button bsStyle="primary" onClick={() => this.addItemToCart(product)}>Add to cart</Button>&nbsp;
+            </span>
           </Thumbnail>
         </Col>
       )
     })
 
     return (
-    <div>
-      <SideBar className="col-md-1" setCategoryFilter={this.setCategoryFilter.bind(this)} setPriceFilter={this.setPriceFilter.bind(this)} sort={this.sort.bind(this)}/>
-      <Grid className="col-md-8 col-md-offset-2 well">
-        <Row>
-          {thumb.length > 0 ? thumb : <p>No matching products found.</p>}
-        </Row>
-      </Grid>
-  </div>
+      <div>
+        <SideBar className="col-md-1"  setCategoryFilter={this.setCategoryFilter.bind(this)} setPriceFilter={this.setPriceFilter.bind(this)} sort={this.sort.bind(this)}/>
+        <Grid className="col-md-8 col-md-offset-2 well">
+          <Row>
+            {thumb.length > 0 ? thumb : <p>No matching products found.</p>}
+          </Row>
+        </Grid>
+      </div>
     );
   }
 }
