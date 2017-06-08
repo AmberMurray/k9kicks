@@ -61,16 +61,14 @@ class ProductsList extends Component {
           <Thumbnail className="thumbnail" src={product.image_url} alt="image200x200">
             <h3>
             <Link to={`/products/${product.pid}`} key={product.pid}>{product.product_name}</Link></h3>
-            <p>{product.price}</p>
+            <h4>$ {product.price}</h4>
             {/* <p className='discount'><ProductDetail getDiscountPrice={getDiscountPrice(product.price)}/></p> */}
-            <span>
+            <div>
               <DropdownButton title="qty" id="bg-vertical-dropdown-2">
                 {this.makeMenuItems(product.quantity)}
               </DropdownButton>
-            </span>
-            <p>
-              <Button id={product.pid} bsStyle="primary" data={product} onClick={() => this.addItemToCart(product)}>Add to cart</Button>&nbsp;
-            </p>
+              <Button className="col-sm-offset-1" id={product.pid} bsStyle="primary" data={product} onClick={() => this.addItemToCart(product)}>Add to cart</Button>&nbsp;
+            </div>
           </Thumbnail>
         </Col>
       )
