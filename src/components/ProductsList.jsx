@@ -79,7 +79,7 @@ class ProductsList extends Component {
     return (
     <div>
       <SideBar className="col-md-1" filter={this.state.filter} setFilter={this.setFilter.bind(this)}/>
-      <Grid className="col-sm-8 col-md-offset-2">
+      <Grid className="col-md-8 col-md-offset-2 well">
         <Row>
           {thumb}
         </Row>

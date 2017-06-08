@@ -43,13 +43,32 @@ div.navbar-collapse.collapse {
   font-size: 25px;
 }
 
-a.nav-link, a.home-button-link {
-  color: #fff;
+a {
+  text-decoration: none;
 }
 
-a:hover, a.home-button-link:hover {
-  color: #F373AD;
+a:hover {
   text-decoration: none;
+  color: #F373AD;
+}
+
+a.nav-link.navbar-brand:hover {
+  text-decoration: none;
+  color: #F373AD;
+}
+
+a.nav-link, button.home-button {
+  color: #fff;
+  text-decoration: none;
+}
+
+button.home-button:hover {
+  background-color: #F373AD;
+  color: #2D3E8C;
+}
+
+a.nav-link:hover {
+  color: #F373AD;
 }
 
 .discount {
