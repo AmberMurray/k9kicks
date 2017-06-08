@@ -11,7 +11,8 @@ class ProductDetail extends Component {
     super(props);
     this.state = {
       product: '',
-      productReviews: []
+      productReviews: [],
+      selectedQuantityValue: ''
     };
   }
 
@@ -35,6 +36,36 @@ class ProductDetail extends Component {
     const price = (product.price);
     return 'SALE PRICE: $' + (Math.round(((price - (rate * price)) * 100)) /100).toFixed(2);
     }
+  }
+
+  makeMenuItems(qty){
+    console.log(qty);
+    const menuItems = []
+    qty > 10 ? qty=10 : qty
+    for (let i=1; i<=qty ; i++){
+      menuItems.push(<MenuItem eventkey="{i}" onSelect={() => this.updateQuantity} value={this.state.selectedQuantityValue}  >{i}</MenuItem>)
+    }
+    return menuItems
+  }
+
+  addItemToCart(product){
+    console.log(product);
+
+    let newItem = {
+      product_id : product.product_id,
+      product_name : product.product_name,
+      quantity : 1,
+      price : product.price }
+      console.log(newItem);
+    this.props.addToCart(newItem);
+
+  }
+
+  updateQuantity(event){
+    console.log(this.state.selectedQuantity);
+    this.setState({
+      selectedQuantity: event.target.value
+    });
   }
 
   render() {
@@ -61,14 +92,11 @@ class ProductDetail extends Component {
           </div>
           <h4>${this.state.product.price}</h4>
           <h4 className='discount'>{this.getDiscountPrice(this.state.product)}</h4>
-          <span>
-            <DropdownButton title="qty" id="bg-vertical-dropdown-2">
-              <MenuItem eventKey="1">Dropdown link</MenuItem>
-            </DropdownButton>
-          </span>
-          <p>
-            <Button bsStyle="primary">Add to cart</Button>&nbsp;
-          </p>
+          <div>
+            <DropdownButton title="qty" id="bg-vertical-dropdown-2" onSelect={() => this.makeMenuItems(this.state.product.quantity)}>
+          </DropdownButton>
+            <Button className="col-sm-offset-1" id={this.state.product.product_id} bsStyle="primary" data={this.state.product} onClick={() => this.addItemToCart(this.state.product)}>Add to cart</Button>&nbsp;
+          </div>
         </Thumbnail>
           <h3>Product Reviews</h3>
       </Col>
