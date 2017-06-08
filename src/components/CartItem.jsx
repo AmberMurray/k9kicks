@@ -7,20 +7,25 @@ import { Nav, Navbar, MenuItem, NavItem, NavDropdown, Image, Glyphicon} from 're
 class CartItem extends Component {
   constructor(props) {
     super(props);
+    this.deleteItem = this.deleteItem.bind(this);
   }
 
   calculatePrice(quantity, price){
     return quantity * price;
   }
 
+  deleteItem(item){
+    this.props.deleteCartItem(item);
+  }
+
   render() {
-    console.log("in cartitem", this.props);
     return (
       <tr>
         <td>{this.props.item.product_name}</td>
         <td>{this.props.item.quantity}</td>
         <td>{this.props.item.price}</td>
         <td>{this.calculatePrice(this.props.item.quantity,this.props.item.price)}</td>
+        <td><a href="#" onClick={() => this.deleteItem(this.props.item)}>X</a></td>
       </tr>
     );
   }

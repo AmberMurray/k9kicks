@@ -10,25 +10,28 @@ class ShoppingCart extends Component {
   }
 
   render() {
-    console.log("in cart", this.props.cart);
+    const table = this.props.cart.length > 0 ?
+      <Table striped bordered condensed hover>
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {this.props.cart.map((item)=>{
+            return <CartItem item={item}/>
+          })
+        }
+        </tbody>
+      </Table>
+    : <p>Your cart is empty</p>
     return (
       <div className="col-md-8">
-        <Table striped bordered condensed hover>
-          <thead>
-            <tr>
-              <th>Product Name</th>
-              <th>Quantity</th>
-              <th>Price</th>
-              <th>Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.props.cart.map((item)=>{
-              return <CartItem item={item}/>
-            })
-          }
-          </tbody>
-        </Table>
+        {table}
       </div>
     );
   }

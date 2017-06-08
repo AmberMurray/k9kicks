@@ -12,8 +12,10 @@ class ProductsList extends Component {
     this.state = {
       products: [],
       filter: '',
+      selectedQuantity: 1
     };
     this.addItemToCart = this.addItemToCart.bind(this);
+    this.updateQuantity = this.updateQuantity.bind(this);
   }
 
   componentDidMount() {
@@ -29,8 +31,8 @@ class ProductsList extends Component {
   makeMenuItems(qty){
     const menuItems = []
     qty > 10 ? qty=10 : qty
-    for (let i=0; i<=qty ; i++){
-      menuItems.push(<MenuItem eventkey="{i}">{i}</MenuItem>)
+    for (let i=1; i<=qty ; i++){
+      menuItems.push(<MenuItem eventkey="{i}" onSelect={() => this.updateQuantity} value={this.state.selectedQuantityValue}  >{i}</MenuItem>)
     }
     return menuItems
   }
@@ -42,12 +44,20 @@ class ProductsList extends Component {
   }
 
   addItemToCart(product){
+
     let newItem = {
       product_id : product.pid,
       product_name : product.product_name,
-      quantity : product.quantity,
+      quantity : this.state.selectedQuantity,
       price : product.price }
     this.props.addToCart(newItem);
+  }
+
+  updateQuantity(event){
+    console.log(this.state.selectedQuantity);
+    this.setState({
+      selectedQuantity: event.target.value
+    });
   }
 
   render() {
@@ -63,13 +73,13 @@ class ProductsList extends Component {
             <Link to={`/products/${product.pid}`} key={product.pid}>{product.product_name}</Link></h3>
             <p>{product.price}</p>
             {/* <p className='discount'><ProductDetail getDiscountPrice={getDiscountPrice(product.price)}/></p> */}
-            <span>
-              <DropdownButton title="qty" id="bg-vertical-dropdown-2">
+            <span>Qty&nbsp;
+              <DropdownButton title={this.state.selectedQuantity}   id="bg-vertical-dropdown-2" >
                 {this.makeMenuItems(product.quantity)}
               </DropdownButton>
             </span>
             <p>
-              <Button id={product.pid} bsStyle="primary" data={product} onClick={() => this.addItemToCart(product)}>Add to cart</Button>&nbsp;
+              <Button bsStyle="primary" onClick={() => this.addItemToCart(product)}>Add to cart</Button>&nbsp;
             </p>
           </Thumbnail>
         </Col>
