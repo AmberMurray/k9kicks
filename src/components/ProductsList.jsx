@@ -138,7 +138,7 @@ class ProductsList extends Component {
 
     return (
     <div>
-      <SideBar className="col-md-1" filter={this.state.filter} setFilter={this.setFilter.bind(this)}/>
+      <SideBar className="col-md-1" setCategoryFilter={this.setCategoryFilter.bind(this)} setPriceFilter={this.setPriceFilter.bind(this)} sort={this.sort.bind(this)}/>
       <Grid className="col-md-8 col-md-offset-2 well">
         <Row>
           {thumb.length > 0 ? thumb : <p>No matching products found.</p>}

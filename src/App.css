@@ -118,7 +118,7 @@ a.nav-link:hover {
 }
 .star-rating s:before {
     content: "\2606";
-
+}
 
 .thumbnail {
   text-align: center;
