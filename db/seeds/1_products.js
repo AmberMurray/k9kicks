@@ -41,7 +41,7 @@ exports.seed = function(knex) {
       id: 4,
       category_id: 3,
       promotion_id: 2,
-      name: 'Caninie Converse',
+      name: 'Canine Converse',
       price: 38.99,
       quantity: 6,
       description:'Back by popular demand - high-tops!  Every dog needs to showcase his personality with his own unique pair of Converse kicks!  Man\'s best friend just got a pair of Man\'s best shoe!',

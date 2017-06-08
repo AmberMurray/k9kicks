@@ -123,28 +123,28 @@ class ProductsList extends Component {
           <Thumbnail className="thumbnail" src={product.image_url} alt="image200x200">
             <h3>
             <Link to={`/products/${product.pid}`} key={product.pid}>{product.product_name}</Link></h3>
-            <p>{product.price}</p>
-            <p className='discount'>{this.getDiscountPrice(product)}</p>
-            <span>Qty&nbsp;
-              <DropdownButton title={this.state.selectedQuantity}   id="bg-vertical-dropdown-2" >
+            <h4 className="discount" >$ {product.price}</h4>
+            {/* <p className='discount'><ProductDetail getDiscountPrice={getDiscountPrice(product.price)}/></p> */}
+            <div>
+              <DropdownButton title="qty" id="bg-vertical-dropdown-2">
                 {this.makeMenuItems(product.quantity)}
-              </DropdownButton> &nbsp;
-              <Button bsStyle="primary" onClick={() => this.addItemToCart(product)}>Add to cart</Button>&nbsp;
-            </span>
+              </DropdownButton>
+              <Button className="col-sm-offset-1" id={product.pid} bsStyle="primary" data={product} onClick={() => this.addItemToCart(product)}>Add to cart</Button>&nbsp;
+            </div>
           </Thumbnail>
         </Col>
       )
     })
 
     return (
-      <div>
-        <SideBar className="col-md-1"  setCategoryFilter={this.setCategoryFilter.bind(this)} setPriceFilter={this.setPriceFilter.bind(this)} sort={this.sort.bind(this)}/>
-        <Grid className="col-sm-8 col-md-offset-3">
-          <Row>
-            {thumb.length > 0 ? thumb : <p>No matching products found.</p>}
-          </Row>
-        </Grid>
-      </div>
+    <div>
+      <SideBar className="col-md-1" filter={this.state.filter} setFilter={this.setFilter.bind(this)}/>
+      <Grid className="col-md-8 col-md-offset-2 well">
+        <Row>
+          {thumb.length > 0 ? thumb : <p>No matching products found.</p>}
+        </Row>
+      </Grid>
+  </div>
     );
   }
 }

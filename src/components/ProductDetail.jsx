@@ -28,7 +28,7 @@ class ProductDetail extends Component {
         console.log(err)
       })
   }
-
+  
   getDiscountPrice(product) {
     if (product.rate !== 0 ){
     const rate = ((product.rate) /100);
@@ -40,7 +40,7 @@ class ProductDetail extends Component {
   render() {
     const reviews = this.state.productReviews.map((productReview) => {
         return(
-          <Col xs={12} md={14}key={productReview.pid}>
+          <Col xs={12} md={14} key={productReview.pid}>
             <Thumbnail>
               <h4>{productReview.content}</h4>
               <h4>Rating: {productReview.rating}</h4>
@@ -52,11 +52,21 @@ class ProductDetail extends Component {
 
     const thumb = (
       <Col xs={12} md={14} >
-        <Thumbnail src={this.state.product.image_url} alt="200x200">
+        <Thumbnail src={this.state.product.image_url}>
+          <div className="container">
           <h3>{this.state.product.product_name}</h3>
+<<<<<<< HEAD
           <p>{this.state.product.description}</p>
           <p>${this.state.product.price}</p>
           <p className='discount'>{this.getDiscountPrice(this.state.product)}</p>
+=======
+          <div className="prod-desc">
+          <h4 className="col-md-8 col-md-offset-2">{this.state.product.description}</h4>
+          </div>
+          </div>
+          <h4>${this.state.product.price}</h4>
+          <h4 className='discount'>{this.getDiscountPrice(this.state.product.price)}</h4>
+>>>>>>> styling-branch-of-amazing
           <span>
             <DropdownButton title="qty" id="bg-vertical-dropdown-2">
               <MenuItem eventKey="1">Dropdown link</MenuItem>
@@ -101,8 +111,7 @@ class ProductDetail extends Component {
     )
 
     return (
-    <div>
-
+      <div>
         <Grid>
           <Row>
           {thumb}
