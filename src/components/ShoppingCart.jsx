@@ -10,26 +10,29 @@ class ShoppingCart extends Component {
     super(props);
     this.state = {
       subTotal: 0,
-      checkout: false
+      showcheckout: false
     }
-    this.getSubTotal = this.getSubTotal.bind(this)
+    this.startCheckout = this.startCheckout.bind(this)
   }
 
-  getSubTotal(total){
+  componentDidMount(){
+    let total = 0;
+    this.props.cart.map((item) => {
+      total += item.price * item.quantity
+    })
     this.setState({
-      subTotal : this.state.subTotal + total
+      subTotal: total.toFixed(2)
     })
   }
 
   startCheckout(){
-    this.setState({
-      checkout : true
-    })
-    console.log("checkout clicked");
+    console.log('hello', this.state, this)
+    this.setState({showcheckout: true})
   }
 
   render() {
     const table = this.props.cart.length > 0 ?
+    <div>
       <Table striped bordered condensed hover>
         <thead>
           <tr>
@@ -42,18 +45,21 @@ class ShoppingCart extends Component {
         </thead>
         <tbody>
           {this.props.cart.map((item)=>{
-            return <CartItem item={item} getSubTotal={this.getSubTotal}/>
+            return <CartItem item={item}/>
           })
         }
         </tbody>
-        <span className="col-md-offset-6">Subtotal</span>&nbsp;<span>{this.state.subTotal}</span> &nbsp;
-        <Button bsStyle="primary" onClick={() => this.startCheckout.bind(this)}>Checkout</Button>
-      </Table>
+        </Table>
+        <p className="col-md-offset-6">Subtotal&nbsp;${this.state.subTotal}</p> &nbsp;
+        <Button bsStyle="primary" onClick={this.startCheckout}>Checkout</Button>
+      </div>
     : <p>Your cart is empty</p>
+
+
     return (
       <div className="col-md-8">
         {table}
-        {this.state.checkout!==false ? <Checkout /> : <a href="/products">Continue shopping</a>}
+        {this.state.showcheckout!==false ? <Checkout /> : <a href="/products">Continue shopping</a>}
       </div>
     );
   }
