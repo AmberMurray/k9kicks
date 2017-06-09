@@ -14,7 +14,7 @@ class Login extends Component {
   }
 
   componentWillMount() {
-   axios.get(`/api/users/${this.props.params.id}`)
+   axios.get(`/api/users`, this.state.credentials)
       .then(response => {
         this.setState({
           user : response.data[0],

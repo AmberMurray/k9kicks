@@ -125,9 +125,6 @@ class ProductsList extends Component {
             <p>{product.price}</p>
             <p className='discount'>{this.getDiscountPrice(product)}</p>
             <span>
-              {/* <DropdownButton title="select quantity" id="bg-vertical-dropdown-2" >
-                {this.makeMenuItems(product.quantity)}
-              </DropdownButton> &nbsp; */}
               <FormGroup controlId="formControlsSelect">
                 <ControlLabel>Qty</ControlLabel>
                 <FormControl componentClass="select" placeholder="" onChange={this.updateQuantity.bind(this)}>

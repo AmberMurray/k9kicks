@@ -7,11 +7,18 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      user:[],
       cart:[],
       numberOfItems: 0,
     };
     this.addToCart = this.addToCart.bind(this)
     this.deleteCartItem = this.deleteCartItem.bind(this)
+  }
+
+  addUser(newUser){
+    this.setState({
+      user: this.state.user.concat(newUser),
+    })
   }
 
   addToCart(newItem){
