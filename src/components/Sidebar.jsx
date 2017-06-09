@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
-import { Image, Grid, Row, Col, Thumbnail, Button, DropdownButton, MenuItem } from 'react-bootstrap';
 import FilterProducts from './FilterProducts';
 import SortProducts from './SortProducts';
 import '../App.css';

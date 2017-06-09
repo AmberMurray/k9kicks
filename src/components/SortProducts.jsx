@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
-import { DropdownButton, MenuItem, FormGroup, ControlLabel,FormControl } from 'react-bootstrap';
+import { FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import '../App.css';
 
 class SortProducts extends Component {
@@ -24,7 +23,6 @@ class SortProducts extends Component {
           </FormControl>
         </FormGroup>
       </div>
-
     );
   }
 }

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import CartItem from './CartItem';
 import Checkout from './Checkout';
 import '../App.css';
-import { Link } from 'react-router';
 import { Table, Button} from 'react-bootstrap';
 
 class ShoppingCart extends Component {

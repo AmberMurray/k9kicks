@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import Header from './Header';
 import { Link } from 'react-router';
-import { Grid, Row, Col, Thumbnail, Button, DropdownButton, MenuItem,FormGroup , ControlLabel, FormControl } from 'react-bootstrap';
-import ProductDetail from './ProductDetail'
+import { Grid, Row, Col, Thumbnail, Button,FormGroup , ControlLabel, FormControl } from 'react-bootstrap';
 import SideBar from './Sidebar';
 import '../App.css';
 
@@ -106,7 +104,7 @@ class ProductsList extends Component {
     this.state.filter === "All products" ? filteredProducts = this.state.products :
     this.state.filterBy === "category" ?
     filteredProducts = this.state.products.filter(product => {
-      return product.category_name.indexOf(this.state.filter) != -1;})
+      return product.category_name.indexOf(this.state.filter) !== -1;})
     : filteredProducts = this.filterByPrice(filteredProducts)
 
     this.state.sortBy === "Low to High" ?
@@ -125,9 +123,7 @@ class ProductsList extends Component {
             <p>{product.price}</p>
             <p className='discount'>{this.getDiscountPrice(product)}</p>
             <span>
-              {/* <DropdownButton title="select quantity" id="bg-vertical-dropdown-2" >
-                {this.makeMenuItems(product.quantity)}
-              </DropdownButton> &nbsp; */}
+
               <FormGroup controlId="formControlsSelect">
                 <ControlLabel>Qty</ControlLabel>
                 <FormControl componentClass="select" placeholder="" onChange={this.updateQuantity.bind(this)}>
