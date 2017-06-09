@@ -7,6 +7,7 @@ import ProductDetail from './components/ProductDetail';
 import Checkout from './components/Checkout';
 import ShoppingCart from './components/ShoppingCart';
 import Login from './components/Login';
+import Credit from './components/Credit';
 
 
 
