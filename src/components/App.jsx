@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect, browserHistory } from 'react-router'
 import '../App.css';
 import Header from './Header';
 import Main from './Main';
@@ -10,15 +11,36 @@ class App extends Component {
       user:[],
       cart:[],
       numberOfItems: 0,
+      isLoggedIn: false,
+      loggedInUser: ''
     };
     this.addToCart = this.addToCart.bind(this)
     this.deleteCartItem = this.deleteCartItem.bind(this)
+    this.addUser = this.addUser.bind(this)
+  }
+
+  componentDidUpdate(prevProps) {
+    const isLoggingOut = prevProps.isLoggedIn && !this.props.isLoggedIn
+    const isLoggingIn = !prevProps.isLoggedIn && this.props.isLoggedIn
+
+    if (isLoggingIn) {
+       //<Redirect to="/products"/>
+       browserHistory.goBack()
+    } else if (isLoggingOut) {
+      // do any kind of cleanup or post-logout redirection here
+      //<Redirect to="/products"/>
+      browserHistory.push('/products')
+    }
   }
 
   addUser(newUser){
     this.setState({
       user: this.state.user.concat(newUser),
+      isLoggedIn: !this.state.isLoggedIn,
+      //loggedInUser: this.state.user[0].username,
     })
+    console.log(this.state.user);
+    browserHistory.push('/products')
   }
 
   addToCart(newItem){
@@ -41,8 +63,9 @@ class App extends Component {
       <div>
         { this.props.children
           ? <div>
-              <Header numberOfItems={this.state.numberOfItems}/>
-              {React.cloneElement(this.props.children, {...this.state, addToCart: this.addToCart, deleteCartItem: this.deleteCartItem})}
+              <Header numberOfItems={this.state.numberOfItems} isLoggedIn={this.state.isLoggedIn}/>
+              {/* <Header numberOfItems={this.state.numberOfItems} isLoggedIn={this.state.isLoggedIn} loggedInUser={this.state.loggedInUser}/> */}
+              {React.cloneElement(this.props.children, {...this.state, addToCart: this.addToCart, deleteCartItem: this.deleteCartItem, addUser: this.addUser})}
             </div>
           : <Main />
         }
@@ -50,4 +73,5 @@ class App extends Component {
     );
   }
 }
-export default App;
+
+export default App

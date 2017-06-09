@@ -1,63 +1,80 @@
 import React, { Component } from 'react';
 import '../App.css';
-//import { Link } from 'react-router';
 import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
+import { browserHistory } from 'react-router';
 import axios from 'axios';
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: []};
-    this.handleChange = this.handleChange.bind(this);
+      username: '',
+      password: ''
+    };
+    this.handleUsernameChange = this.handleUsernameChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWillMount() {
-   axios.get(`/api/users`, this.state.credentials)
-      .then(response => {
-        this.setState({
-          user : response.data[0],
-        })
-      })
-      .catch(err => {
-      })
+  handleUsernameChange(event) {
+    this.setState({username: event.target.value })
   }
 
-  handleChange(event) {
-    this.setState({user: event.target.value })
+  handlePasswordChange(event) {
+    this.setState({password: event.target.value })
   }
 
   handleSubmit(event) {
-    alert('Address submitted: ' + this.state.user)
-    event.prevenDefault();
+    event.preventDefault()
+
+    const user = {
+      username: this.state.username,
+      password: this.state.password
+    }
+
+    axios.post('/api/users/login', user)
+       .then(response => {
+         console.log(response.data);
+         if (response.data.error){
+           alert("Username or Password does not exist")
+         } else {
+           browserHistory.push('/products')
+         }
+         this.props.addUser(response.data)
+       })
+       .catch(err => {
+         console.log(err);
+         alert("Username does not exist")
+       })
   }
 
   render() {
-  const form = (
-    <form className="col-md-4 col-md-offset-2">
-      <FormGroup >
-      <ControlLabel>Login </ControlLabel>
-      <FormControl
-        type="text"
-        value={this.state.value}
-        placeholder={this.state.user.username}
-        onChange={this.handleChange}
-        />
-      <FormControl.Feedback />
-      <ControlLabel>Password </ControlLabel>
-      <FormControl
-        type="text"
-        value={this.state.value}
-        placeholder={this.state.user.password}
-        onChange={this.handleChange}
-        />
-    <Button bsStyle="primary" type="submit">
-      Login
-    </Button>
-  </FormGroup >
-  </form>
-  )
+    const form = (
+      <form className="col-md-4 col-md-offset-2">
+        <FormGroup>
+          <ControlLabel>Username</ControlLabel>
+          <FormControl
+            type="text"
+            name="username"
+            value={this.state.username}
+            placeholder="username"
+            onChange={this.handleUsernameChange}
+            />
+          <FormControl.Feedback />
+          <ControlLabel>Password</ControlLabel>
+          <FormControl
+            type="password"
+            name="password"
+            value={this.state.password}
+            placeholder="password"
+            onChange={this.handlePasswordChange}
+            />
+          <Button bsStyle="primary" type="submit" onClick={this.handleSubmit}>
+            Login
+          </Button>
+        </FormGroup>
+      </form>
+    )
 
     return (
         <div className="container">

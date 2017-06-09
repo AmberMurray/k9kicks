@@ -21,7 +21,6 @@ class ProductDetail extends Component {
         this.setState({
           product : response.data[0],
           productReviews: response.data[1]
-
         })
       })
       .catch(err => {
