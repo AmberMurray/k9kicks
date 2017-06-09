@@ -48,9 +48,12 @@ class ShoppingCart extends Component {
             return <CartItem item={item}/>
           })
         }
+        <tr>
+        <td colSpan="4" className="text-right discount"><h4>Subtotal</h4></td>
+        <td className="text-right discount"><h4>${this.state.subTotal}</h4></td>
+        </tr>
         </tbody>
         </Table>
-        <h4 className="col-md-offset-8 text-right">Subtotal ${this.state.subTotal}</h4>
         <Button bsStyle="primary" className="pull-right"onClick={this.startCheckout}>Checkout</Button>
       </div>
     : <h3 className="col-md-4 col-md-offset-4 text-center">Your cart is empty.<br/> Go Fetch some shoes!</h3>
@@ -58,11 +61,12 @@ class ShoppingCart extends Component {
 
     return (
       <div className="col-md-8 col-md-offset-2">
+        <a href="/products"><h3 className="col-md-2 col-md-offset-10">Keep shopping</h3></a>
         <div className="col-md-8 col-md-offset-2 text-center">
         {this.state.showcheckout!==false ? <h1>Order Details</h1> : <h1>Shopping Cart</h1>}<br/><br/>
         </div>
         {table}
-        {this.state.showcheckout!==false ?<div><div> <Checkout /></div> <div> <Credit /></div></div>: <a href="/products">Continue shopping</a>}
+        {this.state.showcheckout!==false ? <div><div> <Checkout /></div> <div> <Credit /></div></div> : <h1></h1> }
       </div>
     );
   }

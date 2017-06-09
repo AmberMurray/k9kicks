@@ -142,7 +142,7 @@ a.nav-link:hover {
   text-align: justify;
 }
 
-#prod-qty {
+.prod-qty {
   display: inline-block;
   width: 20%;
 }
@@ -153,4 +153,5 @@ a.nav-link:hover {
 
 .prod-add-btn {
   display: inline-block;
+  width: 30%;
 }

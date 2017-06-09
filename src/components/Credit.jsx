@@ -32,9 +32,10 @@ class Credit extends Component {
 
   render() {
   const form = (
-    <form className="col-md-4 col-md-offset-2">
-      <FormGroup >
-      <ControlLabel>Payment Info </ControlLabel>
+    <form className="col-md-4 col-md-offset-4">
+      <h3 className="text-center">Payment Info</h3>
+      <FormGroup>
+      <ControlLabel>Name</ControlLabel>
       <FormControl
         type="text"
         value={this.state.value}
@@ -42,7 +43,7 @@ class Credit extends Component {
         onChange={this.handleChange}
         />
       <FormControl.Feedback />
-      <ControlLabel>Name as Appears on Credit Card </ControlLabel>
+      <ControlLabel>Credit Card Number </ControlLabel>
       <FormControl
         type="text"
         value={this.state.value}
@@ -50,7 +51,7 @@ class Credit extends Component {
         onChange={this.handleChange}
         />
       <FormControl.Feedback />
-      <ControlLabel>Credit Card Number </ControlLabel>
+      <ControlLabel>Exp Date </ControlLabel>
       <FormControl
         type="text"
         value={this.state.value}
@@ -58,7 +59,7 @@ class Credit extends Component {
         onChange={this.handleChange}
         />
       <FormControl.Feedback />
-      <ControlLabel>Expiration Date </ControlLabel>
+      <ControlLabel>Card Number </ControlLabel>
       <FormControl
         type="text"
         value={this.state.value}
@@ -73,8 +74,9 @@ class Credit extends Component {
         placeholder='676'
         onChange={this.handleChange}
         />
-    <Button bsStyle="primary" type="submit">
-      Finish Checkout
+        <br/><br/>
+    <Button className="prod-add-btn col-md-offset-4" bsStyle="primary" type="submit">
+      Buy It!!
     </Button>
   </FormGroup >
   </form>
@@ -82,9 +84,10 @@ class Credit extends Component {
 
     return (
         <div className="container">
-        {form}
+          <br/>
+          <br/>
+          {form}
         </div>
-
     );
   }
 }

@@ -69,7 +69,6 @@ class ProductsList extends Component {
   }
 
   addItemToCart(product){
-
     let newItem = {
       product_id : product.pid,
       product_name : product.product_name,
@@ -122,7 +121,7 @@ class ProductsList extends Component {
             <h4>{product.price}</h4>
             <h4 className='discount'>{this.getDiscountPrice(product)}</h4>
               <FormGroup controlId="formControlsSelect">
-                <FormControl id="prod-qty" componentClass="select" placeholder="" onChange={this.updateQuantity.bind(this)}>
+                <FormControl className="prod-qty" componentClass="select" placeholder="" onChange={this.updateQuantity.bind(this)}>
                   {this.makeOptions(product.quantity)}
                 </FormControl>
                 <Button bsStyle="primary" className="prod-add-btn col-md-offset-1" onClick={() => this.addItemToCart(product)}>Add to cart</Button>
@@ -137,7 +136,7 @@ class ProductsList extends Component {
         <SideBar className="col-md-1"  setCategoryFilter={this.setCategoryFilter.bind(this)} setPriceFilter={this.setPriceFilter.bind(this)} sort={this.sort.bind(this)}/>
         <Grid className="col-md-8 col-md-offset-2 well">
           <Row>
-            {thumb.length > 0 ? thumb : <p>No matching products found.</p>}
+            {thumb.length > 0 ? thumb : <h3 className="text-center">No matching products found</h3>}
           </Row>
         </Grid>
       </div>
