@@ -79,7 +79,6 @@ class ProductsList extends Component {
   }
 
   updateQuantity(event){
-    console.log(event);
     this.setState({
       selectedQuantity: event.target.value
     });
@@ -124,7 +123,6 @@ class ProductsList extends Component {
             <h4>$ {product.price}</h4>
             <h4 className='discount'>{this.getDiscountPrice(product)}</h4>
               <FormGroup controlId="formControlsSelect">
-                {/* <ControlLabel>Qty</ControlLabel> */}
                 <FormControl id="prod-qty" componentClass="select" placeholder="" onChange={this.updateQuantity.bind(this)}>
                   {this.makeOptions(product.quantity)}
                 </FormControl>

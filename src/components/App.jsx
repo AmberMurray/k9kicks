@@ -17,7 +17,7 @@ class App extends Component {
   addToCart(newItem){
     this.setState({
       cart: this.state.cart.concat(newItem),
-      numberOfItems: this.state.numberOfItems + newItem.quantity
+      numberOfItems: this.state.numberOfItems + 1
     })
   }
 

@@ -49,16 +49,21 @@ class ShoppingCart extends Component {
         }
         </tbody>
         </Table>
-        <p className="col-md-offset-6">Subtotal&nbsp;${this.state.subTotal}</p> &nbsp;
+        <h4 className="col-md-offset-8">Subtotal&nbsp;${this.state.subTotal}</h4> &nbsp;
         <Button bsStyle="primary" onClick={this.startCheckout}>Checkout</Button>
       </div>
-    : <p>Your cart is empty</p>
+    : <h3 className="col-md-4 col-md-offset-4 text-center">Your cart is empty.<br/> Go Fetch some shoes!</h3>
 
 
     return (
-      <div className="col-md-8">
+      <div className="col-md-8 col-md-offset-2">
+        <div className="col-md-8 col-md-offset-2 text-center">
+
+        {this.state.showcheckout!==false ? <h1>Order Details</h1> : <h1>Shopping Cart</h1>}<br/><br/>
+
+        </div>
         {table}
-        {this.state.showcheckout!==false ? <Checkout /> : <a href="/products">Continue shopping</a>}
+        {this.state.showcheckout!==false ? <Checkout /> : <a href="/products"><h3 className="col-md-4 col-md-offset-4 text-center">Continue shopping</h3></a>}
       </div>
     );
   }

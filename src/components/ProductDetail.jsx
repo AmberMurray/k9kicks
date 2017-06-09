@@ -108,18 +108,19 @@ class ProductDetail extends Component {
           <form>
       <FormGroup
         controlId="formBasicText">
-        <ControlLabel>Leave a Product Review</ControlLabel>
+        <ControlLabel>Leave a Review</ControlLabel>
         <FormControl
           type="text"
           value={this.state.value}
           placeholder="Enter text"
           onChange={this.handleChange}
         />
-        <ControlLabel>Rating</ControlLabel>
+        <ControlLabel className="col-md-2">Rating</ControlLabel>
         <FormControl
+          id="review-rating"
           type="text"
           value={this.state.value}
-          placeholder="1 - 5 "
+          placeholder="1 - 5"
           onChange={this.handleChange}
         />
       </FormGroup>
