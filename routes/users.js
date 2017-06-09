@@ -12,6 +12,24 @@ router.get('/', (req, res, next) => {
     .catch(err => next(err));
 });
 
+router.post('/login', (req, res, next) => {
+  const checkuser = { username : req.body.username,
+                 password: req.body.password }
+  knex('users')
+    .where('username', checkuser.username)
+    .then(user => {
+      console.log(user);
+      if (user[0].password == checkuser.password){
+        res.json(user)
+      } else {
+        res.json({error: "Username or Password does not match"})
+      }
+    })
+    .catch(err => {
+      next(err)
+    });
+});
+
 //customer details
 router.get('/:id', (req, res, next) => {
   knex('customers')
