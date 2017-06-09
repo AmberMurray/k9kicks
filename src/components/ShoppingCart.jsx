@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import CartItem from './CartItem';
 import Checkout from './Checkout';
 import '../App.css';
-import { Link } from 'react-router';
 import { Table, Button} from 'react-bootstrap';
 
 class ShoppingCart extends Component {
@@ -32,8 +31,8 @@ class ShoppingCart extends Component {
 
   render() {
     const table = this.props.cart.length > 0 ?
-    <div>
-      <Table striped bordered condensed hover>
+    <div className="container">
+      <Table className="cart-table col-md-4" bordered condensed hover>
         <thead>
           <tr>
             <th>Product Name</th>
@@ -50,16 +49,19 @@ class ShoppingCart extends Component {
         }
         </tbody>
         </Table>
-        <p className="col-md-offset-6">Subtotal&nbsp;${this.state.subTotal}</p> &nbsp;
-        <Button bsStyle="primary" onClick={this.startCheckout}>Checkout</Button>
+        <h4 className="col-md-offset-8 text-right">Subtotal ${this.state.subTotal}</h4>
+        <Button bsStyle="primary" className="pull-right"onClick={this.startCheckout}>Checkout</Button>
       </div>
-    : <p>Your cart is empty</p>
+    : <h3 className="col-md-4 col-md-offset-4 text-center">Your cart is empty.<br/> Go Fetch some shoes!</h3>
 
 
     return (
-      <div className="col-md-8">
+      <div className="col-md-8 col-md-offset-2">
+        <div className="col-md-8 col-md-offset-2 text-center">
+        {this.state.showcheckout!==false ? <h1>Order Details</h1> : <h1>Shopping Cart</h1>}<br/><br/>
+        </div>
         {table}
-        {this.state.showcheckout!==false ? <Checkout /> : <a href="/products">Continue shopping</a>}
+        {this.state.showcheckout!==false ? <Checkout /> : <a href="/products"><h3 className="col-md-4 col-md-offset-4 text-center"><br/><br/>Continue shopping</h3></a>}
       </div>
     );
   }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
-import { DropdownButton, MenuItem, FormGroup, ControlLabel,FormControl } from 'react-bootstrap';
+import { FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import '../App.css';
 
 class SortProducts extends Component {
@@ -16,14 +15,13 @@ class SortProducts extends Component {
     return (
       <div>
         <FormGroup controlId="formControlsSelect">
-          <ControlLabel>Sort by price</ControlLabel>
+          <ControlLabel><h4>Sort by Price</h4></ControlLabel>
           <FormControl componentClass="select" placeholder="" onChange={this.sortByPrice.bind(this)}>
             <option value="Low to High">Low to High</option>
             <option value="High to Low">High to Low</option>
           </FormControl>
         </FormGroup>
       </div>
-
     );
   }
 }

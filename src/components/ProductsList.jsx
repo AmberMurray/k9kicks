@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import Header from './Header';
 import { Link } from 'react-router';
-import { Grid, Row, Col, Thumbnail, Button, DropdownButton, MenuItem,FormGroup , ControlLabel, FormControl } from 'react-bootstrap';
-import ProductDetail from './ProductDetail'
+import { Grid, Row, Col, Thumbnail, Button,FormGroup , ControlLabel, FormControl } from 'react-bootstrap';
 import SideBar from './Sidebar';
 import '../App.css';
 
@@ -14,7 +12,7 @@ class ProductsList extends Component {
       filter: 'All products',
       filterBy: '',
       sortBy: '',
-      selectedQuantity: 1
+      selectedQuantity: ''
     };
     this.addItemToCart = this.addItemToCart.bind(this);
     this.updateQuantity = this.updateQuantity.bind(this);
@@ -102,11 +100,10 @@ class ProductsList extends Component {
 
   render() {
     let filteredProducts = []
-
     this.state.filter === "All products" ? filteredProducts = this.state.products :
     this.state.filterBy === "category" ?
     filteredProducts = this.state.products.filter(product => {
-      return product.category_name.indexOf(this.state.filter) != -1;})
+      return product.category_name.indexOf(this.state.filter) !== -1;})
     : filteredProducts = this.filterByPrice(filteredProducts)
 
     this.state.sortBy === "Low to High" ?
@@ -122,17 +119,14 @@ class ProductsList extends Component {
           <Thumbnail className="thumbnail" src={product.image_url} alt="image200x200">
             <h3>
             <Link to={`/products/${product.pid}`} key={product.pid}>{product.product_name}</Link></h3>
-            <p>{product.price}</p>
-            <p className='discount'>{this.getDiscountPrice(product)}</p>
-            <span>
+            <h4>{product.price}</h4>
+            <h4 className='discount'>{this.getDiscountPrice(product)}</h4>
               <FormGroup controlId="formControlsSelect">
-                <ControlLabel>Qty</ControlLabel>
-                <FormControl componentClass="select" placeholder="" onChange={this.updateQuantity.bind(this)}>
+                <FormControl id="prod-qty" componentClass="select" placeholder="" onChange={this.updateQuantity.bind(this)}>
                   {this.makeOptions(product.quantity)}
                 </FormControl>
+                <Button bsStyle="primary" className="prod-add-btn col-md-offset-1" onClick={() => this.addItemToCart(product)}>Add to cart</Button>
               </FormGroup>
-              <Button bsStyle="primary" onClick={() => this.addItemToCart(product)}>Add to cart</Button>&nbsp;
-            </span>
           </Thumbnail>
         </Col>
       )

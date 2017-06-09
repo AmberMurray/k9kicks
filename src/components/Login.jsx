@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 //import { Link } from 'react-router';
-import { FormGroup, ControlLabel, FormControl, HelpBlock, Image, Grid, Row, Col, Thumbnail, Button, DropdownButton, MenuItem} from 'react-bootstrap';
+import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 import axios from 'axios';
 
 class Login extends Component {
