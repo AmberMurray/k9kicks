@@ -12,7 +12,7 @@ class ProductsList extends Component {
       filter: 'All products',
       filterBy: '',
       sortBy: '',
-      selectedQuantity: 1
+      selectedQuantity: ''
     };
     this.addItemToCart = this.addItemToCart.bind(this);
     this.updateQuantity = this.updateQuantity.bind(this);
@@ -79,6 +79,7 @@ class ProductsList extends Component {
   }
 
   updateQuantity(event){
+    console.log(event);
     this.setState({
       selectedQuantity: event.target.value
     });
@@ -100,7 +101,6 @@ class ProductsList extends Component {
 
   render() {
     let filteredProducts = []
-
     this.state.filter === "All products" ? filteredProducts = this.state.products :
     this.state.filterBy === "category" ?
     filteredProducts = this.state.products.filter(product => {
@@ -119,19 +119,17 @@ class ProductsList extends Component {
         <Col xs={6} md={4} key={product.pid}>
           <Thumbnail className="thumbnail" src={product.image_url} alt="image200x200">
             <h3>
-            <Link to={`/products/${product.pid}`} key={product.pid}>{product.product_name}</Link></h3>
-            <p>{product.price}</p>
+              <Link to={`/products/${product.pid}`} key={product.pid}>{product.product_name}</Link>
+            </h3>
+            <h4>$ {product.price}</h4>
             <p className='discount'>{this.getDiscountPrice(product)}</p>
-            <span>
-
               <FormGroup controlId="formControlsSelect">
-                <ControlLabel>Qty</ControlLabel>
-                <FormControl componentClass="select" placeholder="" onChange={this.updateQuantity.bind(this)}>
+                {/* <ControlLabel>Qty</ControlLabel> */}
+                <FormControl id="prod-qty" componentClass="select" placeholder="" onChange={this.updateQuantity.bind(this)}>
                   {this.makeOptions(product.quantity)}
                 </FormControl>
+                <Button bsStyle="primary" className="prod-add-btn col-md-offset-1" onClick={() => this.addItemToCart(product)}>Add to cart</Button>
               </FormGroup>
-              <Button bsStyle="primary" onClick={() => this.addItemToCart(product)}>Add to cart</Button>&nbsp;
-            </span>
           </Thumbnail>
         </Col>
       )

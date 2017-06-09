@@ -77,12 +77,24 @@ a.nav-link:hover {
 }
 
 .home-nav {
-  display: inline-block;
-  position: absolute;
-  right: 200px;
-  bottom: 200px;
-  text-align: center;
 
+  text-align: center;
+}
+
+@media (min-resolution: 144dpi) {
+ .home-nav {
+  position: absolute;
+  right: 15%;
+  bottom: 15%;
+  }
+}
+
+@media (min-resolution: 96dpi) {
+ #logo {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  }
 }
 
 .home-name {
@@ -144,4 +156,13 @@ a.nav-link:hover {
 
 .prod-desc {
   text-align: justify;
+}
+
+#prod-qty {
+  display: inline-block;
+  width: 20%;
+}
+
+.prod-add-btn {
+  display: inline-block;
 }
