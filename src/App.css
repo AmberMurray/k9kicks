@@ -1,3 +1,11 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "adelle-sans", "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+  letter-spacing: 0.05em;
+  background-color: #eaeaea;
+}
+
 div.navbar-collapse.collapse {
   margin-top: 15px;
 }
@@ -18,7 +26,13 @@ div.navbar-collapse.collapse {
   font-size: 25px;
 }
 
+button.btn.btn-primary {
+  background-color: #2D3E8C;
+  border: none;
+}
+
 a {
+  color: #2D3E8C;
   text-decoration: none;
 }
 
@@ -37,7 +51,7 @@ a.nav-link, button.home-button {
   text-decoration: none;
 }
 
-button.home-button:hover {
+button.btn:hover {
   background-color: #F373AD;
   color: #2D3E8C;
 }
@@ -79,9 +93,9 @@ a.nav-link:hover {
 }
 
 .home-tagline {
-  font-family: 'Cormorant SC', serif;
-  font-weight: bold;
-  letter-spacing: 0.2em;
+  /*font-family: 'Cormorant SC', serif;*/
+  /*font-weight: bold;*/
+  /*letter-spacing: 0.2em;*/
   color: #F373AD;
   margin-top: 5px;
 }
