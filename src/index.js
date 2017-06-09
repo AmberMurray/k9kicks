@@ -9,6 +9,7 @@ import Main from './components/Main';
 import Checkout from './components/Checkout';
 import ShoppingCart from './components/ShoppingCart';
 import Login from './components/Login';
+import Credit from './components/Credit';
 import './index.css';
 
 

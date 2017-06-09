@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CartItem from './CartItem';
 import Checkout from './Checkout';
+import Credit from './Credit';
 import '../App.css';
 import { Link } from 'react-router';
 import { Table, Button} from 'react-bootstrap';
@@ -59,7 +60,7 @@ class ShoppingCart extends Component {
     return (
       <div className="col-md-8">
         {table}
-        {this.state.showcheckout!==false ? <Checkout /> : <a href="/products">Continue shopping</a>}
+        {this.state.showcheckout!==false ?<div><div> <Checkout /></div> <div> <Credit /></div></div>: <a href="/products">Continue shopping</a>}
       </div>
     );
   }
