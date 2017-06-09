@@ -147,6 +147,10 @@ a.nav-link:hover {
   width: 20%;
 }
 
+.cart-table {
+  background-color: #fff;
+}
+
 .prod-add-btn {
   display: inline-block;
 }
