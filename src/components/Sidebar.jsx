@@ -11,8 +11,9 @@ class SideBar extends Component {
   render() {
     return (
       <div className="side-bar well">
-        <SortProducts sort={this.props.sort} />
         <FilterProducts setCategoryFilter={this.props.setCategoryFilter} setPriceFilter={this.props.setPriceFilter}/>
+        <hr></hr>
+        <SortProducts sort={this.props.sort} />
     </div>
     );
   }

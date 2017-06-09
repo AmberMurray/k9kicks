@@ -120,30 +120,14 @@ a.nav-link:hover {
 
 .side-bar {
   position: absolute;
-  left: 100px;
-  top: 200px;
+  left: 4%;
+  top: 20%;
   color: #2D3E8C;
 }
 
 .prod-filter {
   text-align: center;
   font-size: 20px;
-}
-
-.star-rating s:hover {
-    color: yellow;
-}
-
-.star-rating s,
-.star-rating {
-    padding: 2px;
-}
-
-.star-rating s:hover:before, .star-rating s.rated:before {
-    content: "\2605";
-}
-.star-rating s:before {
-    content: "\2606";
 }
 
 .thumbnail {

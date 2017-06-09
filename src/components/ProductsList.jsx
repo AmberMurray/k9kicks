@@ -122,7 +122,7 @@ class ProductsList extends Component {
               <Link to={`/products/${product.pid}`} key={product.pid}>{product.product_name}</Link>
             </h3>
             <h4>$ {product.price}</h4>
-            <p className='discount'>{this.getDiscountPrice(product)}</p>
+            <h4 className='discount'>{this.getDiscountPrice(product)}</h4>
               <FormGroup controlId="formControlsSelect">
                 {/* <ControlLabel>Qty</ControlLabel> */}
                 <FormControl id="prod-qty" componentClass="select" placeholder="" onChange={this.updateQuantity.bind(this)}>

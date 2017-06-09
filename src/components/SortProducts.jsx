@@ -14,9 +14,8 @@ class SortProducts extends Component {
   render() {
     return (
       <div>
-      <h4>Sort by Price</h4>
         <FormGroup controlId="formControlsSelect">
-          <ControlLabel>Sort by price</ControlLabel>
+          <ControlLabel><h4>Sort by Price</h4></ControlLabel>
           <FormControl componentClass="select" placeholder="" onChange={this.sortByPrice.bind(this)}>
             <option value="Low to High">Low to High</option>
             <option value="High to Low">High to Low</option>

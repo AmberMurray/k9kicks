@@ -17,18 +17,16 @@ class FilterProducts extends Component {
   render() {
     return (
       <div>
-        <p><a onClick={this.changeCategoryFilter.bind(this)}>All products</a></p>
         <h4>Filter by Category</h4>
-        <hr></hr>
         <div className="prod-filter">
           <p><a onClick={this.changeCategoryFilter.bind(this)}>Seasonal</a></p>
           <p><a onClick={this.changeCategoryFilter.bind(this)}>Fashion</a></p>
           <p><a onClick={this.changeCategoryFilter.bind(this)}>Athletic</a></p>
           <p><a onClick={this.changeCategoryFilter.bind(this)}>Casual</a></p>
+          <p><a onClick={this.changeCategoryFilter.bind(this)}>All</a></p>
         </div>
         <hr></hr>
         <h4>Filter by Price</h4>
-        <hr></hr>
         <div className="prod-filter">
           <p><a id="0" onClick={this.changePriceFilter.bind(this)}>$0 - 25</a></p>
           <p><a id="25" onClick={this.changePriceFilter.bind(this)}>$25 - 50</a></p>
