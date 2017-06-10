@@ -37,7 +37,7 @@ router.post('/:id/orders', (req, res, next) => {
         res.json(order)
       })
     })
-    .catch(err => next(err))
-  })
+  .catch(err => next(err))
+})
 
   module.exports = router
