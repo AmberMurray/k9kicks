@@ -77,7 +77,9 @@ a.nav-link:hover {
 }
 
 .home-nav {
-
+  position: absolute;
+  bottom: 15%;
+  right: 13%;
   text-align: center;
 }
 
@@ -89,9 +91,6 @@ a.nav-link:hover {
 }
 
 .home-tagline {
-  /*font-family: 'Cormorant SC', serif;*/
-  /*font-weight: bold;*/
-  /*letter-spacing: 0.2em;*/
   color: #F373AD;
   margin-top: 5px;
 }
