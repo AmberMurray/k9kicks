@@ -89,10 +89,10 @@ class ProductDetail extends Component {
           <h4>${this.state.product.price}</h4>
           <h4 className='discount'>{this.getDiscountPrice(this.state.product)}</h4>
           <div>
-            <Link to={`/products`}>Back to products</Link>&nbsp&nbsp&nbsp&nbsp&nbsp
-            <DropdownButton title="qty" id="bg-vertical-dropdown-2" onSelect={() => this.makeMenuItems(this.state.product.quantity)}>
+            <DropdownButton title="qty" className="single-prod-qty" id="bg-vertical-dropdown-2" onSelect={() => this.makeMenuItems(this.state.product.quantity)}>
             </DropdownButton>
-            <Button className="col-sm-offset-1" id={this.state.product.product_id} bsStyle="primary" data={this.state.product} onClick={() => this.addItemToCart(this.state.product)}>Add to cart</Button>&nbsp
+            <Button id={this.state.product.product_id} bsStyle="primary" data={this.state.product} onClick={() => this.addItemToCart(this.state.product)}>Add to cart</Button>
+            <Link to={`/products`}><Button className='col-sm-offset-1'>Keep Shopping</Button></Link>
           </div>
         </Thumbnail>
         <h3>Product Reviews</h3>
