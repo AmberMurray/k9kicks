@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
-import '../App.css';
+import React, { Component } from 'react'
+import { FormGroup, ControlLabel, FormControl } from 'react-bootstrap'
+import '../App.css'
 
 class SortProducts extends Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
-
+  
   sortByPrice(event){
-    this.props.sort(event.target.value);
+    this.props.sort(event.target.value)
   }
 
   render() {
@@ -22,8 +22,8 @@ class SortProducts extends Component {
           </FormControl>
         </FormGroup>
       </div>
-    );
+    )
   }
 }
 
-export default SortProducts;
+export default SortProducts

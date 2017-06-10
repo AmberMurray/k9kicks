@@ -13,7 +13,8 @@ exports.seed = (knex) => {
       ship_zipcode: '98126',
       ship_phone_number: '206-555-1111',
       ship_email: 'ilovecorgis@gmail.com'
-      }, {
+    },
+    {
       id:2,
       customer_id: 2,
       order_date: '06-01-2017',
@@ -25,7 +26,8 @@ exports.seed = (knex) => {
       ship_zipcode: '98245',
       ship_phone_number: '206-555-2222',
       ship_email: 'ilovegreyhounds@gmail.com'
-      }, {
+    },
+    {
       id:3,
       customer_id: 3,
       order_date: '06-02-2017',
@@ -37,11 +39,11 @@ exports.seed = (knex) => {
       ship_zipcode: '98378',
       ship_phone_number: '206-555-3333',
       ship_email: 'ilovefrenchies@gmail.com'
-    }]);
+    }])
   })
   .then(() => {
     return knex.raw(
-      "SELECT setval('orders_id_seq', (SELECT MAX(id) FROM orders));"
-    );
-  });
-};
+      "SELECT setval('orders_id_seq', (SELECT MAX(id) FROM orders))"
+    )
+  })
+}

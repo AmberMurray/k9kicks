@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
-import '../App.css';
-import { Button } from 'react-bootstrap';
+import React, { Component } from 'react'
+import '../App.css'
+import { Button } from 'react-bootstrap'
 import { Link } from 'react-router'
-
-
 
 class Main extends Component {
   render() {
@@ -16,10 +14,9 @@ class Main extends Component {
             <Link className="home-button-link" to="/products"><Button className="home-button btn btn-lg">Shop</Button></Link>
           </div>
         </section>
-
       </div>
     )
   }
 }
 
-export default Main;
+export default Main

@@ -146,10 +146,10 @@ exports.seed = function(knex) {
       updated_at: new Date('2016-06-26 14:26:16 UTC'),
     },
   ])
-  })
-  .then(() => {
-    return knex.raw(
-      "SELECT setval('products_id_seq', (SELECT MAX(id) FROM products))"
-    )
-  })
+})
+.then(() => {
+  return knex.raw(
+    "SELECT setval('products_id_seq', (SELECT MAX(id) FROM products))"
+  )
+})
 }

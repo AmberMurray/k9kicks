@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import '../App.css';
-import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
-import { browserHistory } from 'react-router';
-import axios from 'axios';
+import React, { Component } from 'react'
+import '../App.css'
+import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap'
+import { browserHistory } from 'react-router'
+import axios from 'axios'
 
 class Login extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       username: '',
       password: ''
-    };
-    this.handleUsernameChange = this.handleUsernameChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    this.handleUsernameChange = this.handleUsernameChange.bind(this)
+    this.handlePasswordChange = this.handlePasswordChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleUsernameChange(event) {
@@ -33,19 +33,18 @@ class Login extends Component {
     }
 
     axios.post('/api/users/login', user)
-       .then(response => {
-         console.log(response.data);
-         if (response.data.error){
-           alert("Username or Password does not exist")
-         } else {
-           browserHistory.push('/products')
-         }
-         this.props.addUser(response.data)
-       })
-       .catch(err => {
-         console.log(err);
-         alert("Username does not exist")
-       })
+    .then(response => {
+      if (response.data.error){
+        alert("Username or password does not exist")
+      } else {
+        browserHistory.push('/products')
+      }
+      this.props.addUser(response.data)
+    })
+    .catch(err => {
+      console.error(err)
+      alert("Username or password does not exist")
+    })
   }
 
   render() {
@@ -59,7 +58,7 @@ class Login extends Component {
             value={this.state.username}
             placeholder="username"
             onChange={this.handleUsernameChange}
-            />
+          />
           <FormControl.Feedback />
           <ControlLabel>Password</ControlLabel>
           <FormControl
@@ -68,7 +67,7 @@ class Login extends Component {
             value={this.state.password}
             placeholder="password"
             onChange={this.handlePasswordChange}
-            />
+          />
           <Button bsStyle="primary" type="submit" onClick={this.handleSubmit}>
             Login
           </Button>
@@ -77,13 +76,10 @@ class Login extends Component {
     )
 
     return (
-        <div className="container">
+      <div className="container">
         {form}
-        </div>
-
-    );
+      </div>
+    )
   }
 }
-
-
-export default Login;
+export default Login

@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import '../App.css';
+import React, { Component } from 'react'
+import '../App.css'
 
 class FilterProducts extends Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   changeCategoryFilter(event){
-    this.props.setCategoryFilter(event.target.innerText);
+    this.props.setCategoryFilter(event.target.innerText)
   }
 
   changePriceFilter(event){
-    this.props.setPriceFilter(event.target.id);
+    this.props.setPriceFilter(event.target.id)
   }
 
   render() {
@@ -34,8 +34,8 @@ class FilterProducts extends Component {
           <p><a id="75" onClick={this.changePriceFilter.bind(this)}>Above $75</a></p>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default FilterProducts;
+export default FilterProducts

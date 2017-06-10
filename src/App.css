@@ -81,22 +81,6 @@ a.nav-link:hover {
   text-align: center;
 }
 
-@media (min-resolution: 144dpi) {
- .home-nav {
-  position: absolute;
-  right: 15%;
-  bottom: 15%;
-  }
-}
-
-@media (min-resolution: 96dpi) {
- #logo {
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  }
-}
-
 .home-name {
   font-weight: bolder;
   font-size: 50px;
