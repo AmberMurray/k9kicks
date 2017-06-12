@@ -9,7 +9,7 @@ class ProductsList extends Component {
     super(props)
     this.state = {
       products: [],
-      filter: 'All products',
+      filter: 'All',
       filterBy: '',
       sortBy: '',
       selectedQuantity: ''
@@ -70,10 +70,11 @@ class ProductsList extends Component {
   }
 
   addItemToCart(product){
+    let qty = this.state.selectedQuantity || 1
     let newItem = {
       product_id : product.pid,
       product_name : product.product_name,
-      quantity : this.state.selectedQuantity,
+      quantity : qty,
       price : product.price }
       this.props.addToCart(newItem)
     }
@@ -100,7 +101,7 @@ class ProductsList extends Component {
 
   render() {
     let filteredProducts = []
-    this.state.filter === "All products" ? filteredProducts = this.state.products :
+    this.state.filter === "All" ? filteredProducts = this.state.products :
     this.state.filterBy === "category" ?
     filteredProducts = this.state.products.filter(product => {
       return product.category_name.indexOf(this.state.filter) !== -1})
